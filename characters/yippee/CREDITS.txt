@@ -7,5 +7,6 @@ https://creativecommons.org/licenses/by/4.0/
 The original .riv file is unchanged. This website frames the headphone character
 with a cropped viewport and adds CSS hover/click feedback. Original colors and
 character features are preserved. Audio is muted and external actions disabled.
+The lightweight startup poster is a frame captured from the original animation.
 
 Rive Canvas runtime 2.45.1 is MIT licensed; see /vendor/rive/LICENSE.
