@@ -8,17 +8,20 @@
 
 - 播放从当前句连续到末尾；开启三遍后，每句三遍再推进。鼠标和快捷键选句行为一致。
 - 多个本地/在线音色、统一样句试听、变速；Microsoft在线声音支持内存音频缓存与相邻句准备，首次生成仍需要网络。
+- Kokoro 8个自然英语音色；本机准备整篇音频后，切句直接播放。首次下载模型约100MB。
+- 邮箱账号、个人学习面板、30天日历、前台有效练习时长与积分等级；每句听写可检查，重复提交不重复加分。
 - 左侧原文、右侧听写、专注练习、阅读字号与栏宽调整。
 - 中文多义释义、变形词原形补充、整句翻译；桌面固定查询输入、手机浮窗。
 - 17套Happy Hues配色、独立日夜模式、随主题换色的Yippee角色。
 - 材料、听写和设置只保留在当前页面会话，刷新重新开始。
+- 登录后的标题和学习统计保存至Supabase，用户只能读取自己的记录；原文与听写不上传。
 
 ## GitHub分支与版本
 
 - `main`：构建后的静态网站、更新日志和README，供GitHub Pages发布。
 - [`source`](https://github.com/MIMAO28/listening-desk/tree/source)：当前可开发的React/TypeScript源码、公开资源和依赖锁文件。
-- [`source-v0.5.1`](https://github.com/MIMAO28/listening-desk/tree/source-v0.5.1)：当前源码的固定快照。
-- `v0.1.0` 至 `v0.5.1`：对应已有9次网站部署的静态文件标签，每版都有中文Release说明。
+- [`source-v0.6.0`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.0)：当前源码的固定快照。
+- `v0.1.0` 起：对应网站部署的静态文件标签，每版都有中文Release说明。
 
 早于首次GitHub Pages发布的界面迭代没有单独GitHub快照；早期源码也未逐版保存，不将最新源码伪称为历史源码。网址中的`?v=8`等参数是缓存刷新标记，不是固定历史版本链接。
 
@@ -35,11 +38,13 @@ npm run dev
 
 ```powershell
 npm test
+npm run test:database
 $env:SITE_BASE_PATH='/listening-desk/'
 npm run build
 ```
 
 构建产物在`dist`。发布流程见[GitHub Pages发布说明](docs/GitHub-Pages发布.md)，主题说明见[主题配色](docs/主题配色.md)。
+账号部署、SMTP与语音资源说明见[账号与自然语音](docs/账号与自然语音.md)。模型已随公开资源分发；需重新获取时运行`npm run prepare:voices`。
 
 ## 来源
 
