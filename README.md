@@ -20,7 +20,7 @@
 
 - `main`：构建后的静态网站、更新日志和README，供GitHub Pages发布。
 - [`source`](https://github.com/MIMAO28/listening-desk/tree/source)：当前可开发的React/TypeScript源码、公开资源和依赖锁文件。
-- [`source-v0.6.2`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.2)：当前源码的固定快照。
+- [`source-v0.6.3`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.3)：当前源码的固定快照。
 - `v0.1.0` 起：对应网站部署的静态文件标签，每版都有中文Release说明。
 
 早于首次GitHub Pages发布的界面迭代没有单独GitHub快照；早期源码也未逐版保存，不将最新源码伪称为历史源码。网址中的`?v=8`等参数是缓存刷新标记，不是固定历史版本链接。
