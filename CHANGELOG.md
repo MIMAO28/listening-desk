@@ -6,6 +6,13 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.1 · 学习面板与登录窗口快捷键隔离
+
+2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.1) · [原提交 f42dcbd](https://github.com/MIMAO28/listening-desk/commit/f42dcbd5c67cad7edb5d786851ec862ff45836f9)
+
+- 学习面板和账号弹窗不响应播放快捷键，避免误触后台音频准备。
+- 保留v0.6.0的8个自然音色、邮箱账号、个人学习面板及全部精听功能。
+
 ## v0.6.0 · Kokoro自然语音、邮箱账号与个人学习面板
 
 2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.0) · [原提交 054b804](https://github.com/MIMAO28/listening-desk/commit/054b804124a9d3a01292fd6e7752b2a25edd1bb5)
