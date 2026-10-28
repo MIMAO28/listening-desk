@@ -8,6 +8,9 @@
 .account-dialog p { color: var(--muted); line-height: 1.8; }
 .account-dialog label { display: grid; gap: 8px; margin: 18px 0; font-size: 14px; }
 .account-dialog input { width: 100%; min-height: 44px; }
+.account-dialog .email-code { font-size: 24px; font-weight: 650; letter-spacing: .2em; }
+.account-dialog .email-code::placeholder { font-size: 14px; font-weight: 400; letter-spacing: 0; }
+.verify-entry { margin: 0 0 18px; }
 .account-dialog .primary-button { width: 100%; }
 .account-dialog small { color: var(--muted); font-size: 12px; line-height: 1.8; }
 .account-links { display: flex; justify-content: space-between; margin: 18px 0; }

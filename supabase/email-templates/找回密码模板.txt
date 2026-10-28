@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:32px 16px;background:#f5f6f7;color:#232830;font-family:Arial,'Microsoft YaHei',sans-serif;line-height:1.8">
+<table role="presentation" style="width:100%;max-width:560px;margin:auto;background:white;border:1px solid #dfe4e6;border-radius:16px"><tr><td style="padding:32px">
+<p style="margin:0 0 20px;font-size:15px;font-weight:bold;color:#32655e">听写练习台</p>
+<h1 style="font-size:24px;margin:0 0 12px">找回密码验证码</h1>
+<p>请回到听写练习台的“找回密码”窗口，填写验证码，然后设置新密码。</p>
+<div style="margin:24px 0;padding:20px 12px;background:#eef6f3;border:1px solid #cbded6;border-radius:10px;text-align:center;font:700 36px/1.5 monospace;letter-spacing:8px;color:#174b40">{{ .Token }}</div>
+<p style="font-size:15px"><strong>无需点击外部重设链接。</strong>只需复制数字，回网站填写。</p>
+<p><a href="https://mimao28.github.io/listening-desk/" style="display:inline-block;padding:12px 24px;background:#255c50;color:white;text-decoration:none;border-radius:8px;font-weight:bold">回到听写练习台</a></p>
+<p style="font-size:13px;color:#59636a">验证码仅供本人使用，失效后可重新发送。若不是你发起的找回操作，请忽略此邮件；你的密码不会因此改变。</p>
+</td></tr></table></body></html>
