@@ -2,7 +2,14 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, use
 import type { CSSProperties } from 'react'
 import type { Material, Preferences } from './types.ts'
 import { SpeechPlayer } from './lib/speechPlayer.ts'
-import { CachedSpeechPort } from './lib/cachedSpeechPort.ts'
+import { PracticeSpeechPort } from './lib/practiceSpeechPort.ts'
+import { naturalVoiceChoices, naturalVoiceId } from './lib/naturalVoices.ts'
+import { useAccount } from './hooks/useAccount.ts'
+import { useLearning } from './hooks/useLearning.ts'
+import { checkAnswer } from './lib/learning.ts'
+import type { CheckResult } from './lib/learning.ts'
+import { AccountDialog } from './components/AccountDialog.tsx'
+import { LearningDashboard } from './components/LearningDashboard.tsx'
 import { RATES } from './lib/workspace.ts'
 import { useWorkspace } from './hooks/useWorkspace.ts'
 import { Icon } from './components/Icon.tsx'
@@ -19,11 +26,17 @@ import { ThemePicker } from './components/ThemePicker.tsx'
 export function App() {
   const { workspace, setWorkspace } = useWorkspace()
   const [route, setRoute] = useState(() => routeFromHash(window.location.hash))
-  const [speechPort] = useState(() => new CachedSpeechPort())
+  const [speechPort] = useState(() => new PracticeSpeechPort())
   const [player] = useState(() => new SpeechPlayer(speechPort))
   const playback = useSyncExternalStore(player.subscribe, player.getSnapshot)
   const audioStatus = useSyncExternalStore(speechPort.subscribe, speechPort.getSnapshot)
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
+  const preparation = useSyncExternalStore(speechPort.subscribe, speechPort.getPreparation)
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(naturalVoiceChoices)
+  const account = useAccount()
+  const [accountOpen, setAccountOpen] = useState(false)
+  const [check, setCheck] = useState<CheckResult | null>(null)
+  const [checkError, setCheckError] = useState('')
+  const checkedSentences = useRef(new Map<string, Set<number>>())
   const [voiceChecked, setVoiceChecked] = useState(false)
   const [importMode, setImportMode] = useState<'new' | 'edit' | null>(null)
   const [focused, setFocused] = useState(false)
@@ -48,15 +61,27 @@ export function App() {
   const channels = useMemo(() => characterChannels(colors), [colors])
   const navigationIndex = useRef(material.currentIndex)
   navigationIndex.current = material.currentIndex
-  const supported = 'speechSynthesis' in window
+  const supported = 'AudioContext' in window
   const availableVoices = voices.filter(voice => voice.lang.replace('_', '-').startsWith(material.language.split('-')[0]))
     .sort((a, b) => Number(b.localService) - Number(a.localService) || a.name.localeCompare(b.name))
-  const languageVoices = material.language.startsWith('en') ? englishVoiceChoices(availableVoices) : availableVoices
+  const languageVoices = material.language.startsWith('en') ? [...voices.filter(v => naturalVoiceId(v.voiceURI)), ...englishVoiceChoices(availableVoices.filter(v => !naturalVoiceId(v.voiceURI)))] : availableVoices
   const selectedVoice = languageVoices.find(voice => voice.voiceURI === preferences.voiceURI)
-  const canPlay = !!selectedVoice && supported
+  const natural = !!selectedVoice && !!naturalVoiceId(selectedVoice.voiceURI)
+  const naturalReady = natural && speechPort.isReady(material.sentences.map(s => s.text), selectedVoice!.voiceURI)
+  const canPlay = !!selectedVoice && supported && (!natural || naturalReady)
   const inProgress = playback.status === 'playing' || playback.status === 'waiting'
   const previewActive = playback.mode === 'single' && (inProgress || playback.status === 'paused')
   const continuousPlayback = playback.mode === 'continuous' && (inProgress || playback.status === 'paused')
+  const practiceRoute = route === 'en' || route === 'ja'
+  const learning = useLearning(account.user, material, practiceRoute && playback.status === 'playing' && !previewActive && (natural || audioStatus !== 'loading'), practiceRoute)
+  const answer = material.answers?.[material.sentences[material.currentIndex].id] ?? ''
+  useLayoutEffect(() => { speechPort.cancelPreparation() }, [speechPort, material.id, material.sourceText, selectedVoice?.voiceURI])
+
+  useEffect(() => { if (account.recovery) setAccountOpen(true) }, [account.recovery])
+  useEffect(() => { setCheck(null); setCheckError('') }, [material.id, material.currentIndex])
+  useEffect(() => {
+    if (route === 'dashboard' && account.user) void learning.flush().then(learning.refresh)
+  }, [route, account.user?.id])
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual'
@@ -107,21 +132,21 @@ export function App() {
   }, [playback.mode, playback.sentenceIndex, material.id, material.currentIndex, material.sentences.length, updateMaterial])
   const refreshVoices = useCallback(() => {
     if (!supported) return
-    setVoices([...window.speechSynthesis.getVoices()])
+    setVoices([...naturalVoiceChoices(), ...('speechSynthesis' in window ? window.speechSynthesis.getVoices() : [])])
   }, [supported])
 
   useEffect(() => {
     if (!supported) return
     refreshVoices()
-    window.speechSynthesis.addEventListener('voiceschanged', refreshVoices)
+    window.speechSynthesis?.addEventListener('voiceschanged', refreshVoices)
     const timer = setTimeout(() => { refreshVoices(); setVoiceChecked(true) }, 1500)
-    return () => { clearTimeout(timer); window.speechSynthesis.removeEventListener('voiceschanged', refreshVoices) }
+    return () => { clearTimeout(timer); window.speechSynthesis?.removeEventListener('voiceschanged', refreshVoices) }
   }, [refreshVoices, supported])
   useEffect(() => () => player.stop(), [player])
   useEffect(() => {
     if (voices.length === 0) return
     const english = material.language.startsWith('en')
-    const available = english ? englishVoiceChoices(voices)
+    const available = english ? [...voices.filter(v => naturalVoiceId(v.voiceURI)), ...englishVoiceChoices(voices.filter(v => !naturalVoiceId(v.voiceURI)))]
       : voices.filter(voice => voice.lang.replace('_', '-').startsWith(material.language.split('-')[0]))
     const currentAvailable = available.find(voice => voice.voiceURI === preferences.voiceURI)
     const explicit = available.find(voice => voice.voiceURI === manualVoices.current.get(material.language))
@@ -167,6 +192,10 @@ export function App() {
     updateMaterial(material.id, { currentIndex: index })
   }
   const play = () => {
+    if (natural && !naturalReady && selectedVoice) {
+      if (preparation.status !== 'loading') speechPort.prepareNatural(material.sentences.map(s => s.text), selectedVoice.voiceURI)
+      return
+    }
     if (!canPlay) return
     if (previewActive) player.playAll(material.sentences.map(sentence => sentence.text), settings, material.currentIndex, repeatThree ? 3 : 1)
     else if (playback.status === 'paused') player.resume()
@@ -192,13 +221,18 @@ export function App() {
   }
   const previewVoice = () => {
     if (previewActive) player.stop()
+    else if (natural && selectedVoice) {
+      const sample = "Today, we'll examine how changes in the environment influence the way animals behave."
+      if (naturalReady) player.play(material.sentences[material.currentIndex].text, settings)
+      else speechPort.prepareNatural([sample], selectedVoice.voiceURI, () => player.play(sample, settings))
+    }
     else if (canPlay) player.play(material.language.startsWith('en')
       ? "Today, we'll examine how changes in the environment influence the way animals behave."
       : '今日は、環境の変化が動物の行動に与える影響を考えます。', settings)
   }
   const changeSettings = (patch: Partial<Preferences>) => {
     updatePreferences(patch)
-    if (patch.voiceURI === '') player.stop()
+    if (patch.voiceURI !== undefined) player.stop()
     else player.reconfigure({ ...settings, ...patch })
   }
   const changeFocus = (next: boolean) => {
@@ -249,16 +283,28 @@ export function App() {
     setWorkspace(previous => ({ ...previous, activeId: next.id,
       materials: importMode === 'edit' ? previous.materials.map(item => item.id === next.id ? next : item) : [...previous.materials, next] }))
     setImportMode(null)
+    checkedSentences.current.delete(next.id); setCheck(null); setCheckError('')
     if (next.language !== sessionLanguage) window.location.hash = next.language === 'ja-JP' ? '/practice/ja' : '/practice/en'
     setNotice(importMode === 'edit' ? '已更新材料，保留了听写内容。' : `已导入 ${next.sentences.length} 句，选择声音后就能开始。`)
     requestAnimationFrame(() => practiceArea.current?.scrollIntoView({ block: 'start', behavior: 'instant' }))
   }
   const openImport = () => { player.stop(); setImportMode('new') }
+  const checkCurrent = () => {
+    setCheckError('')
+    if (!answer.trim()) { setCheckError('先写下你听到的内容，再检查。'); return }
+    try {
+      const result = checkAnswer(material.sentences[material.currentIndex].text, answer, material.language)
+      setCheck(result)
+      const indices = checkedSentences.current.get(material.id) ?? new Set<number>()
+      indices.add(material.currentIndex); checkedSentences.current.set(material.id, indices)
+      void learning.record(material.currentIndex, result, indices.size === material.sentences.length)
+    } catch (error) { setCheckError(error instanceof Error ? error.message : '检查未完成。') }
+  }
   const statusText = playback.status === 'paused' ? continuousPlayback ? '连播已暂停' : '已暂停'
     : playback.status === 'waiting' ? continuousPlayback ? '正在切换下一句' : '句间停顿'
     : playback.status === 'playing' ? continuousPlayback ? '全文连播中' : '正在朗读'
     : playback.status === 'error' ? '朗读中断' : '待播放'
-  const wordCount = material.draftText.trim() ? material.draftText.trim().split(/\s+/).length : 0
+  const wordCount = answer.trim() ? answer.trim().split(/\s+/).length : 0
   const showCurrent = !preferences.transcriptHidden || peek
 
   return <div className={`app-shell${focused ? ' is-focused' : ''}${settingsOpen ? ' has-settings' : ''}`} style={{
@@ -269,8 +315,10 @@ export function App() {
       <a className="brand" href="#/" aria-label={route === 'home' ? '听写练习台' : '返回首页'} title="返回首页" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}><span className="brand-mark"><Icon name="headphones" size={24} /></span>
         <span>听写练习台</span></a>
       <div className="header-actions">
+        <a className="dashboard-link" href="#/dashboard">学习面板</a>
+        {account.user ? <button className="text-button account-control" onClick={() => { void learning.flush().then(account.logout).catch(() => setNotice('退出未完成，请检查网络重试。')) }}>退出登录</button> : <button className="text-button account-control" onClick={() => setAccountOpen(true)} disabled={account.loading}>{account.loading ? '连接账号…' : '邮箱登录'}</button>}
         <ThemePicker value={preferences.colorTheme} onChange={colorTheme => updatePreferences({ colorTheme })} />
-        {route !== 'home' && <>
+        {practiceRoute && <>
           <nav className="language-tabs" aria-label="练习语言"><a href="#/practice/en" aria-current={route === 'en' ? 'page' : undefined}>英语</a><a href="#/practice/ja" aria-current={route === 'ja' ? 'page' : undefined}>日语</a></nav>
         </>}
         <button className="theme-toggle" type="button" aria-pressed={preferences.theme === 'dark'}
@@ -280,11 +328,11 @@ export function App() {
           <Icon name={preferences.theme === 'dark' ? 'sun' : 'moon'} size={17} />
           <span className="theme-label">{preferences.theme === 'dark' ? '日间模式' : '深夜模式'}</span>
         </button>
-        {route !== 'home' && <button className="secondary-button" onClick={openImport}><Icon name="plus" />导入材料</button>}
+        {practiceRoute && <button className="secondary-button" onClick={openImport}><Icon name="plus" />导入材料</button>}
       </div>
     </header>
 
-    {route === 'home' ? <HomePage /> : <main className="practice-page">
+    {route === 'home' ? <HomePage /> : route === 'dashboard' ? <LearningDashboard user={account.user} sessions={learning.sessions} loading={learning.loading} error={learning.error || account.error} onLogin={() => setAccountOpen(true)} onRefresh={() => { void learning.flush().then(learning.refresh) }} /> : <main className="practice-page">
       <div className="training-area" id="practice-area" ref={practiceArea}>
       <section className="material-heading training-heading" aria-label="当前练习材料">
         <div><h2>{material.title}</h2></div>
@@ -315,7 +363,7 @@ export function App() {
         <details className="keyboard-help"><summary>快捷键与说明</summary>
           <p><kbd>Esc</kbd> 关闭设置 / 退出专注。常用播放快捷键显示在播放器下方。</p>
           <p>选中听写中的单词，点击听写栏的放大镜即可查词。</p>
-          <p>本次输入：{material.language.startsWith('en') ? `${wordCount} 词` : `${material.draftText.length} 字符`}。练习不保存，刷新后重新开始。</p>
+          <p>本句输入：{material.language.startsWith('en') ? `${wordCount} 词` : `${answer.length} 字符`}。切句保留各句输入，刷新后清空。登录后仅保存标题和学习统计。</p>
         </details>
       </section>
       {(!supported || (voiceChecked && !selectedVoice)) && <div className="alert warning" role="status">
@@ -334,9 +382,9 @@ export function App() {
           <div className="transport">
             <button className="transport-button" onMouseDown={event => event.preventDefault()} onClick={() => jump(-1)}
               disabled={material.currentIndex === 0} aria-label="上一句" title="上一句 Alt+J"><Icon name="previous" size={20} /><span>上一句</span></button>
-            <button className="play-button" onMouseDown={event => event.preventDefault()} onClick={play} disabled={!canPlay}
-              aria-label={previewActive ? '播放' : inProgress ? '暂停' : playback.status === 'paused' ? '继续播放' : '播放'} title="播放 / 暂停 Alt+K">
-              <Icon name={!previewActive && inProgress ? 'pause' : 'play'} size={20} />{previewActive ? '播放' : inProgress ? '暂停' : playback.status === 'paused' ? '继续' : '播放'}</button>
+            <button className="play-button" onMouseDown={event => event.preventDefault()} onClick={play} disabled={!selectedVoice || !supported || natural && preparation.status === 'loading'}
+              aria-label={natural && !naturalReady ? '准备自然语音' : previewActive ? '播放' : inProgress ? '暂停' : playback.status === 'paused' ? '继续播放' : '播放'} title="播放 / 暂停 Alt+K">
+              <Icon name={!previewActive && inProgress ? 'pause' : 'play'} size={20} />{natural && !naturalReady ? preparation.status === 'loading' ? '准备中' : '准备语音' : previewActive ? '播放' : inProgress ? '暂停' : playback.status === 'paused' ? '继续' : '播放'}</button>
             <button className="transport-button" onMouseDown={event => event.preventDefault()} onClick={() => jump(1)}
               disabled={material.currentIndex === material.sentences.length - 1} aria-label="下一句" title="下一句 Alt+L"><span>下一句</span><Icon name="next" size={20} /></button>
             <span className="sentence-progress" aria-label={`第 ${material.currentIndex + 1} / ${material.sentences.length} 句`}>{material.currentIndex + 1} / {material.sentences.length}</span>
@@ -378,10 +426,14 @@ export function App() {
             <div className="panel-heading"><h2 id="dictation-title">我的听写</h2>
               <button className="panel-icon-button" aria-label="选词查词" onMouseDown={event => event.preventDefault()} onClick={lookupSelectedText} title="查询选中的单词"><Icon name="search" size={18} /></button></div>
             <div className="dictation-body"><label className="sr-only" htmlFor="dictation-input">我的听写内容</label>
-              <textarea ref={dictationInput} id="dictation-input" className="dictation-input" value={material.draftText} maxLength={100_000}
+              <textarea ref={dictationInput} id="dictation-input" className="dictation-input" value={answer} maxLength={100_000}
                 spellCheck={false} autoComplete="off" autoCorrect="off" autoCapitalize="off"
-                placeholder="输入听写内容"
-                onChange={event => updateMaterial(material.id, { draftText: event.target.value })} />
+                placeholder="输入当前句听写内容"
+                onChange={event => { learning.touch(); setCheck(null); updateMaterial(material.id, { draftText: event.target.value, answers: { ...material.answers, [material.sentences[material.currentIndex].id]: event.target.value } }) }} />
+              <div className="answer-actions"><button className="secondary-button" onClick={checkCurrent}>检查本句</button><span role="status">{account.user ? learning.status === 'saving' ? '保存中…' : learning.status === 'saved' ? '学习记录已同步' : '登录后记录本次练习' : '游客练习 · 不保存统计'}</span></div>
+              {checkError && <p className="check-error" role="alert">{checkError}</p>}
+              {check && <div className="answer-feedback" role="status"><strong>写对 {check.correct} / {check.total}{material.language.startsWith('ja') ? ' 字符' : ' 词'}{check.extra > 0 && ` · 多写或未匹配 ${check.extra} 项`}</strong><div>{check.words.map((word, i) => <span key={i} className={word.correct ? 'answer-correct' : 'answer-missed'}>{word.text}{material.language.startsWith('en') ? ' ' : ''}</span>)}</div><small>标记处尚未匹配；忽略大小写与标点。{material.language.startsWith('ja') && '日语按字符检查，每正确字符计1分。'}</small></div>}
+              {learning.error && <p className="check-error" role="alert">{learning.error}<button className="text-button" onClick={() => void learning.flush()}>重试同步</button></p>}
             </div>
           </section>
         </div>
@@ -392,14 +444,16 @@ export function App() {
       <div className="workspace-side">
         <DictionaryPanel selection={lookupSelection} language={sessionLanguage} />
         <section className="voice-card" aria-labelledby="voice-card-title">
-          <div className="voice-card-heading"><h3 id="voice-card-title">朗读声音</h3><div className="voice-card-actions"><button className="text-button" disabled={!canPlay} onClick={previewVoice} aria-label={previewActive ? '停止试听' : '试听声音'}><Icon name={previewActive ? 'stop' : 'play'} size={14} />{previewActive ? '停止' : '试听'}</button><button className="panel-icon-button" aria-label="刷新声音" title="刷新声音" onClick={() => { refreshVoices(); setVoiceChecked(true) }}><Icon name="repeat" size={17} /></button></div></div>
+          <div className="voice-card-heading"><h3 id="voice-card-title">朗读声音</h3><div className="voice-card-actions"><button className="text-button" disabled={!selectedVoice || (natural && preparation.status === 'loading')} onClick={previewVoice} aria-label={previewActive ? '停止试听' : '试听声音'}><Icon name={previewActive ? 'stop' : 'play'} size={14} />{previewActive ? '停止' : '试听'}</button><button className="panel-icon-button" aria-label="刷新声音" title="刷新声音" onClick={() => { refreshVoices(); setVoiceChecked(true) }}><Icon name="repeat" size={17} /></button></div></div>
           <label className="voice-picker"><span className="sr-only">声音</span><select aria-label="朗读声音" value={selectedVoice?.voiceURI ?? ''} onChange={event => { manualVoices.current.set(material.language, event.target.value); changeSettings({ voiceURI: event.target.value }) }}>
             <option value="">{languageVoices.length ? '请选择声音' : voiceChecked ? '未找到对应语言的声音' : '正在查找声音…'}</option>
-            {languageVoices.map(voice => <option key={voice.voiceURI} value={voice.voiceURI} title={voiceDescription(voice)}>{voiceLabel(voice)} · {isNaturalVoice(voice) ? `自然 · ${voice.localService ? '本地' : '在线'}` : voice.localService ? '系统本地' : '在线'}</option>)}
+            {languageVoices.map(voice => <option key={voice.voiceURI} value={voice.voiceURI} title={naturalVoiceId(voice.voiceURI) ? 'Kokoro · 本机生成 · 与参考站相同音色系列' : voiceDescription(voice)}>{naturalVoiceId(voice.voiceURI) ? voice.name : `${voiceLabel(voice)} · ${isNaturalVoice(voice) ? `自然 · ${voice.localService ? '本地' : '在线'}` : voice.localService ? '系统本地' : '在线'}`}</option>)}
           </select></label>
+          {natural && <div className="natural-preparation"><p>{naturalReady ? '本篇音频已就绪，切句直接播放。' : preparation.status === 'loading' ? `正在准备 ${preparation.done} / ${preparation.total} 句${preparation.generating ? ' · 本机合成中' : ` · 资源下载 ${preparation.percent}%`}` : '先准备本篇音频，完成后开始练习。首次需下载约 100 MB，建议使用 Wi-Fi；后续尽量复用浏览器缓存。'}</p>
+            {preparation.status === 'loading' ? <><progress aria-label="自然语音准备进度" max={preparation.total || 1} value={preparation.done} /><button className="text-button" onClick={() => speechPort.cancelPreparation()}>取消准备</button></> : !naturalReady && <button className="secondary-button" onClick={() => { player.stop(); speechPort.prepareNatural(material.sentences.map(s => s.text), selectedVoice!.voiceURI) }}>准备本篇自然语音</button>}
+            {preparation.status === 'error' && <p className="check-error" role="alert">{preparation.error}</p>}</div>}
           {audioStatus === 'loading' && <p className="voice-availability" role="status">正在准备这句音频，完成后自动播放…</p>}
           {audioStatus === 'fallback' && <p className="voice-availability" role="status">音频缓存连接暂不可用，已使用原在线朗读，切句可能稍有等待。</p>}
-          {material.language.startsWith('en') && voiceChecked && languageVoices.length > 0 && languageVoices.every(voice => voice.localService && !isNaturalVoice(voice)) && <p className="voice-availability">当前窗口仅检测到基础系统声；在线声音出现后会自动列出。</p>}
         </section>
       </div>
       </div>
@@ -409,6 +463,7 @@ export function App() {
     {importMode && <ImportDialog material={importMode === 'edit' ? material : undefined}
       initialLanguage={sessionLanguage}
       onClose={() => setImportMode(null)} onSave={saveMaterial} />}
+    {accountOpen && <AccountDialog recovery={account.recovery} onRecovered={account.finishRecovery} onClose={() => setAccountOpen(false)} />}
     {/* Hidden text must be absent from the rendered transcript, not merely blurred. */}
     {route !== 'home' && !showCurrent && <span className="sr-only">当前句内容已隐藏。</span>}
   </div>

@@ -10,6 +10,7 @@ export interface Material {
   sourceText: string
   sentences: Sentence[]
   draftText: string
+  answers?: Record<string, string>
   currentIndex: number
   updatedAt: string
 }

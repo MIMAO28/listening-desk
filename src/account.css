@@ -1,0 +1,94 @@
+.dashboard-link { color: var(--ink); font-size: 14px; text-decoration: none; white-space: nowrap; }
+.dashboard-link:hover { color: var(--link); }
+.account-control { white-space: nowrap; }
+.account-dialog { width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow: auto; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); padding: 28px; box-shadow: 0 20px 80px var(--shadow-color); }
+.account-dialog::backdrop { background: var(--backdrop); }
+.account-dialog-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.account-dialog h2 { font-size: 23px; margin: 0; }
+.account-dialog p { color: var(--muted); line-height: 1.8; }
+.account-dialog label { display: grid; gap: 8px; margin: 18px 0; font-size: 14px; }
+.account-dialog input { width: 100%; min-height: 44px; }
+.account-dialog .primary-button { width: 100%; }
+.account-dialog small { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.account-links { display: flex; justify-content: space-between; margin: 18px 0; }
+.account-message { padding: 12px; background: var(--accent-soft); border-radius: 8px; }
+.learning-page { max-width: 1160px; padding: 48px 28px 80px; margin: 0 auto; }
+.learning-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 30px; }
+.learning-page h1 { margin: 0; font-size: clamp(26px, 4vw, 34px); }
+.learning-page h2 { font-size: 21px; margin: 0 0 18px; }
+.learning-heading p { margin: 10px 0 0; color: var(--muted); }
+.level-panel { display: flex; gap: 28px; align-items: center; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.level-medallion { width: 80px; height: 80px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--button-ink); font-size: 36px; font-weight: 750; }
+.level-description { flex: 1; min-width: 0; }
+.level-description h2 { margin: 0 0 12px; }
+.level-numbers { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 14px; }
+.level-description progress, .natural-preparation progress { width: 100%; height: 10px; accent-color: var(--accent); margin: 12px 0; }
+.level-description progress { appearance: none; border: none; border-radius: 8px; overflow: hidden; background: var(--surface-soft); }
+.level-description progress::-webkit-progress-bar { background: var(--surface-soft); }
+.level-description progress::-webkit-progress-value { background: var(--accent); border-radius: 8px; }
+.level-description progress::-moz-progress-bar { background: var(--accent); }
+.level-description small { display: block; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.study-streak { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.study-streak strong { white-space: nowrap; font-size: 18px; }
+.study-streak b { font-size: 30px; margin: 0 6px; }
+.study-streak span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.learning-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin: 30px 0 42px; }
+.learning-stats > div { display: grid; gap: 12px; padding: 0 24px; border-right: 1px solid var(--line); }
+.learning-stats > div:first-child { padding-left: 0; }
+.learning-stats > div:last-child { border: 0; }
+.learning-stats span { color: var(--muted); font-size: 14px; }
+.learning-stats strong { font-size: clamp(23px, 3vw, 32px); }
+.learning-stats small { color: var(--muted); font-size: 12px; }
+.study-history { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.study-calendar { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 8px; }
+.study-calendar button { display: grid; gap: 6px; min-height: 66px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-soft); color: var(--ink); }
+.study-calendar button small { font-size: 11px; color: var(--muted); }
+.study-calendar button span { font-weight: 650; }
+.study-calendar .studied { background: var(--accent-soft); border-color: var(--accent-line); }
+.study-calendar button[aria-pressed="true"] { outline: 2px solid var(--focus); outline-offset: 1px; }
+.study-calendar .today span { text-decoration: underline; text-underline-offset: 5px; }
+.history-details { margin-top: 26px; }
+.history-details h3 { font-size: 16px; }
+.history-details p { color: var(--muted); }
+.history-details ul { list-style: none; padding: 0; }
+.history-details li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line-soft); font-size: 14px; }
+.history-details li > div { display: grid; gap: 8px; flex: 1; min-width: 0; }
+.history-details li strong { overflow-wrap: anywhere; }
+.history-details li span { color: var(--muted); }
+.history-details li > span { white-space: nowrap; }
+.dashboard-next { display: flex; gap: 12px; margin-top: 30px; }
+.dashboard-next a, .dashboard-empty a { display: inline-flex; text-decoration: none; align-items: center; }
+.dashboard-empty { max-width: 620px; padding: 60px 0; }
+.dashboard-empty p { color: var(--muted); line-height: 1.9; }
+.dashboard-empty a { margin-left: 20px; color: var(--link); }
+.natural-preparation p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+.natural-preparation .secondary-button { width: 100%; }
+.dictation-body { display: flex; flex-direction: column; }
+.dictation-body .dictation-input { flex: 1; min-height: 160px; }
+.answer-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-top: 1px solid var(--line-soft); }
+.answer-actions > span { color: var(--muted); font-size: 12px; }
+.answer-feedback { padding: 18px 22px; border-top: 1px solid var(--line); line-height: 1.9; font-size: 14px; }
+.answer-feedback > div { margin: 12px 0; }
+.answer-feedback small { color: var(--muted); }
+.answer-missed { text-decoration: underline wavy var(--error-ink); text-underline-offset: 4px; }
+.answer-correct { color: var(--ink); }
+.check-error { color: var(--error-ink) !important; font-size: 13px; line-height: 1.8; padding: 0 20px; }
+@media (max-width: 900px) { .app-header { flex-wrap: wrap; } .header-actions { flex-wrap: wrap; gap: 12px; } }
+@media (max-width: 600px) {
+  .learning-page { padding: 28px 18px 60px; }
+  .level-panel { gap: 16px; padding: 20px 16px; align-items: flex-start; }
+  .level-medallion { width: 52px; height: 52px; font-size: 24px; }
+  .level-description h2 { font-size: 18px; }
+  .level-numbers, .study-streak { flex-direction: column; align-items: flex-start; }
+  .study-streak { gap: 8px; }
+  .learning-stats { grid-template-columns: repeat(2, 1fr); gap: 26px 0; }
+  .learning-stats > div { padding-left: 18px; }
+  .learning-stats > div:nth-child(odd) { padding-left: 0; }
+  .learning-stats > div:nth-child(even) { border-right: 0; }
+  .study-history { padding: 20px 14px; }
+  .study-calendar { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+  .study-calendar button { min-height: 58px; }
+  .history-details li { flex-wrap: wrap; }
+  .history-details li > div { flex-basis: 100%; }
+  .answer-actions { flex-wrap: wrap; padding: 12px; }
+}

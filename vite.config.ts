@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: process.env.SITE_BASE_PATH || '/',
   plugins: [react()],
+  worker: { format: 'es' },
   server: { watch: { ignored: ['**/output/**', '**/.playwright-cli/**'] } },
 })
