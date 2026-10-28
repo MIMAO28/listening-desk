@@ -21,7 +21,7 @@ export function accountError(error: unknown) {
   if (/Invalid login credentials/i.test(message)) return '邮箱或密码不正确。'
   if (/Email not confirmed/i.test(message)) return '请先打开邮箱中的确认邮件，再回来登录。'
   if (/Email address not authorized/i.test(message)) return '网站发信服务尚未就绪，暂时无法向这个邮箱发送确认邮件。'
-  if (/Token has expired|otp_expired|invalid.*otp|invalid.*token/i.test(message)) return '验证码错误或已失效，请检查最新邮件，或重新发送。'
+  if (/Token has expired|otp_expired|invalid.*otp|invalid.*token/i.test(message)) return '确认链接已失效或已使用。若已确认过，请直接登录；否则重新发送邮件。'
   if (/rate limit|over_email_send_rate_limit/i.test(message)) return '邮件发送过于频繁，请稍后重试。'
   if (/email.*invalid|invalid.*email/i.test(message)) return '请填写有效邮箱地址。'
   if (/signup.*disabled/i.test(message)) return '暂未开放注册，请联系网站维护者。'

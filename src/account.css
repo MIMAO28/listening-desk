@@ -1,4 +1,7 @@
 .dashboard-link { color: var(--ink); font-size: 14px; text-decoration: none; white-space: nowrap; }
+.email-confirm-card { max-width: 600px; margin: 32px auto; padding: 36px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+.email-confirm-card p { line-height: 1.9; color: var(--muted); margin: 24px 0; }
+.email-confirm-card a { display: inline-flex; text-decoration: none; }
 .dashboard-link:hover { color: var(--link); }
 .account-control { white-space: nowrap; }
 .account-dialog { width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow: auto; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); padding: 28px; box-shadow: 0 20px 80px var(--shadow-color); }

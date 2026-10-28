@@ -9,6 +9,7 @@ import { useLearning } from './hooks/useLearning.ts'
 import { checkAnswer } from './lib/learning.ts'
 import type { CheckResult } from './lib/learning.ts'
 import { AccountDialog } from './components/AccountDialog.tsx'
+import { EmailConfirmation } from './components/EmailConfirmation.tsx'
 import { LearningDashboard } from './components/LearningDashboard.tsx'
 import { RATES } from './lib/workspace.ts'
 import { useWorkspace } from './hooks/useWorkspace.ts'
@@ -78,6 +79,7 @@ export function App() {
   useLayoutEffect(() => { speechPort.cancelPreparation() }, [speechPort, material.id, material.sourceText, selectedVoice?.voiceURI])
 
   useEffect(() => { if (account.recovery) setAccountOpen(true) }, [account.recovery])
+  useEffect(() => { if (account.user && !account.recovery) setAccountOpen(false) }, [account.user, account.recovery])
   useEffect(() => { setCheck(null); setCheckError('') }, [material.id, material.currentIndex])
   useEffect(() => {
     if (route === 'dashboard' && account.user) void learning.flush().then(learning.refresh)
@@ -332,7 +334,7 @@ export function App() {
       </div>
     </header>
 
-    {route === 'home' ? <HomePage /> : route === 'dashboard' ? <LearningDashboard user={account.user} sessions={learning.sessions} loading={learning.loading} error={learning.error || account.error} onLogin={() => setAccountOpen(true)} onRefresh={() => { void learning.flush().then(learning.refresh) }} /> : <main className="practice-page">
+    {route === 'home' ? <HomePage /> : route === 'confirm' ? <EmailConfirmation onLogin={() => setAccountOpen(true)} /> : route === 'dashboard' ? <LearningDashboard user={account.user} sessions={learning.sessions} loading={learning.loading} error={learning.error || account.error} onLogin={() => setAccountOpen(true)} onRefresh={() => { void learning.flush().then(learning.refresh) }} /> : <main className="practice-page">
       <div className="training-area" id="practice-area" ref={practiceArea}>
       <section className="material-heading training-heading" aria-label="当前练习材料">
         <div><h2>{material.title}</h2></div>
@@ -463,7 +465,7 @@ export function App() {
     {importMode && <ImportDialog material={importMode === 'edit' ? material : undefined}
       initialLanguage={sessionLanguage}
       onClose={() => setImportMode(null)} onSave={saveMaterial} />}
-    {accountOpen && <AccountDialog recovery={account.recovery} onRecovered={account.finishRecovery} onClose={() => setAccountOpen(false)} />}
+    {accountOpen && <AccountDialog recovery={account.recovery} onRecovered={() => { account.finishRecovery(); if (route === 'confirm') window.location.hash = '/dashboard' }} onClose={() => setAccountOpen(false)} />}
     {/* Hidden text must be absent from the rendered transcript, not merely blurred. */}
     {route !== 'home' && !showCurrent && <span className="sr-only">当前句内容已隐藏。</span>}
   </div>
