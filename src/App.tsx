@@ -253,7 +253,7 @@ export function App() {
   }
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (route === 'home') return
+      if (!practiceRoute || accountOpen) return
       if (event.key === 'Escape' && document.querySelector('.color-theme-dialog[open]')) return
       if (event.key === 'Escape' && settingsOpen && !importMode && !event.defaultPrevented) {
         event.preventDefault(); setSettingsOpen(false); return

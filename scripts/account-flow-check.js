@@ -1,5 +1,7 @@
 async page => {
   const checks = [], db = new Map(), results = new Map()
+  let workers = 0
+  page.on('worker', () => workers++)
   const assert = (condition, label) => { if (!condition) throw new Error(label); checks.push(label) }
   const ids = { 'learner-a@example.test': '11111111-1111-4111-8111-111111111111', 'learner-b@example.test': '22222222-2222-4222-8222-222222222222' }
   const makeUser = email => ({ id: ids[email], email, aud: 'authenticated', role: 'authenticated', app_metadata: { provider: 'email', providers: ['email'] }, user_metadata: {}, created_at: new Date().toISOString() })
@@ -54,6 +56,10 @@ async page => {
   await page.getByRole('link', { name: '学习面板', exact: true }).click()
   await page.getByText('累计 10 分', { exact: true }).waitFor()
   assert(await page.getByRole('heading', { name: 'Lv.1 Beginner' }).isVisible(), 'dashboard displays actual level and points')
+  const beforeKeys = workers
+  await page.keyboard.press('Alt+k')
+  await page.waitForTimeout(100)
+  assert(workers === beforeKeys, 'dashboard shortcuts cannot start hidden speech preparation')
   await page.setViewportSize({ width: 390, height: 844 })
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'mobile dashboard has no horizontal overflow')
   await page.screenshot({ path: 'output/account-dashboard-mobile.png', fullPage: true })
