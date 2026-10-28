@@ -1,0 +1,13 @@
+Yippee by gianluigi.ranauro
+Source: https://rive.app/marketplace/27915-52755-yippee/
+Author: https://rive.app/@gianluigi.ranauro
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+The original .riv file is unchanged. This website frames the headphone character
+with a cropped viewport and adds CSS hover/click feedback. The canvas and startup
+poster are recolored with an SVG color map to match the selected Happy Hues theme;
+the original character features and motion are preserved. Audio is muted and external actions disabled.
+The lightweight startup poster is a frame captured from the original animation.
+
+Rive Canvas runtime 2.45.1 is MIT licensed; see /vendor/rive/LICENSE.

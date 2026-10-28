@@ -1,0 +1,8 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  base: process.env.SITE_BASE_PATH || '/',
+  plugins: [react()],
+  server: { watch: { ignored: ['**/output/**', '**/.playwright-cli/**'] } },
+})

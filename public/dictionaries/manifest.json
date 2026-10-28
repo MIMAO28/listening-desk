@@ -1,0 +1,10 @@
+{
+  "source": "https://github.com/skywind3000/ECDICT",
+  "license": "MIT",
+  "sourceSha256": "d1ecbdf9ee2b920afb6f430ca6b6bb9f559588cf0dff86e04bd255f9390843cc",
+  "words": 759961,
+  "shards": 256,
+  "bytes": 47487739,
+  "inflectedForms": 58123,
+  "inflectionShards": 256
+}

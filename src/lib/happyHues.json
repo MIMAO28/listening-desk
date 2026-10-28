@@ -1,0 +1,3563 @@
+[
+  {
+    "id": "hues-1",
+    "number": 1,
+    "sourceUrl": "https://www.happyhues.co/palettes/1",
+    "background": "#fffffe",
+    "headline": "#181818",
+    "paragraph": "#2e2e2e",
+    "button": "#4fc4cf",
+    "buttonText": "#181818",
+    "illustration": {
+      "stroke": "#181818",
+      "main": "#f2eef5",
+      "highlight": "#4fc4cf",
+      "secondary": "#994ff3",
+      "tertiary": "#fbdd74"
+    },
+    "swatches": [
+      "#4fc4cf",
+      "#994ff3",
+      "#fbdd74",
+      "#181818",
+      "#f6efef"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#181818"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "button",
+        "hex": "#4fc4cf"
+      },
+      {
+        "role": "button text",
+        "hex": "#181818"
+      },
+      {
+        "role": "stroke",
+        "hex": "#181818"
+      },
+      {
+        "role": "main",
+        "hex": "#f2eef5"
+      },
+      {
+        "role": "highlight",
+        "hex": "#4fc4cf"
+      },
+      {
+        "role": "secondary",
+        "hex": "#994ff3"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fbdd74"
+      },
+      {
+        "role": "background",
+        "hex": "#f6efef"
+      },
+      {
+        "role": "headline",
+        "hex": "#181818"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "card background",
+        "hex": "#f0e2e1"
+      },
+      {
+        "role": "card heading",
+        "hex": "#181818"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "stroke",
+        "hex": "#181818"
+      },
+      {
+        "role": "main",
+        "hex": "#f2eef5"
+      },
+      {
+        "role": "highlight",
+        "hex": "#4fc4cf"
+      },
+      {
+        "role": "secondary",
+        "hex": "#994ff3"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fbdd74"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#181818"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "card background",
+        "hex": "#181818"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#50c4cf"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#fbdd74"
+      },
+      {
+        "role": "background",
+        "hex": "#181818"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#ddd6d6"
+      },
+      {
+        "role": "link",
+        "hex": "#50c4cf"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#ddd6d6"
+      },
+      {
+        "role": "background",
+        "hex": "#fbdd74"
+      },
+      {
+        "role": "form input",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "form button",
+        "hex": "#50c4cf"
+      },
+      {
+        "role": "form button text",
+        "hex": "#181818"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#181818"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2e2e2e"
+      },
+      {
+        "role": "links",
+        "hex": "#4fc4cf"
+      }
+    ]
+  },
+  {
+    "id": "hues-2",
+    "number": 2,
+    "sourceUrl": "https://www.happyhues.co/palettes/2",
+    "background": "#fffffe",
+    "headline": "#00214d",
+    "paragraph": "#1b2d45",
+    "button": "#00ebc7",
+    "buttonText": "#00214d",
+    "illustration": {
+      "stroke": "#00214d",
+      "main": "#fffffe",
+      "highlight": "#00ebc7",
+      "secondary": "#ff5470",
+      "tertiary": "#fde24f"
+    },
+    "swatches": [
+      "#00ebc7",
+      "#ff5470",
+      "#fde24f",
+      "#00214d",
+      "#f2f4f6"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "button",
+        "hex": "#00ebc7"
+      },
+      {
+        "role": "button text",
+        "hex": "#00214d"
+      },
+      {
+        "role": "stroke",
+        "hex": "#00214d"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#00ebc7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ff5470"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fde24f"
+      },
+      {
+        "role": "background",
+        "hex": "#f2f4f6"
+      },
+      {
+        "role": "headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card heading",
+        "hex": "#00214d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "stroke",
+        "hex": "#00214d"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#00ebc7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ff5470"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fde24f"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "card background",
+        "hex": "#f2f4f6"
+      },
+      {
+        "role": "card headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#00214d"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#ff5470"
+      },
+      {
+        "role": "background",
+        "hex": "#001534"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "link",
+        "hex": "#fde24f"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "background",
+        "hex": "#ff5470"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#00214d"
+      },
+      {
+        "role": "form button",
+        "hex": "#fde24f"
+      },
+      {
+        "role": "form button text",
+        "hex": "#00214d"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#00214d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#1b2d45"
+      },
+      {
+        "role": "links",
+        "hex": "#00ebc7"
+      }
+    ]
+  },
+  {
+    "id": "hues-3",
+    "number": 3,
+    "sourceUrl": "https://www.happyhues.co/palettes/3",
+    "background": "#fffffe",
+    "headline": "#094067",
+    "paragraph": "#5f6c7b",
+    "button": "#3da9fc",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#094067",
+      "main": "#fffffe",
+      "highlight": "#3da9fc",
+      "secondary": "#90b4ce",
+      "tertiary": "#ef4565"
+    },
+    "swatches": [
+      "#3da9fc",
+      "#90b4ce",
+      "#ef4565",
+      "#094067",
+      "#d8eefe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "button",
+        "hex": "#3da9fc"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#094067"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#3da9fc"
+      },
+      {
+        "role": "secondary",
+        "hex": "#90b4ce"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "background",
+        "hex": "#d8eefe"
+      },
+      {
+        "role": "headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card heading",
+        "hex": "#094067"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "stroke",
+        "hex": "#094067"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#3da9fc"
+      },
+      {
+        "role": "secondary",
+        "hex": "#90b4ce"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "card background",
+        "hex": "#094067"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#3da9fc"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "background",
+        "hex": "#d8eefe"
+      },
+      {
+        "role": "headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "link",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "background",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#094067"
+      },
+      {
+        "role": "form button",
+        "hex": "#ef4565"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#094067"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#5f6c7b"
+      },
+      {
+        "role": "links",
+        "hex": "#3da9fc"
+      }
+    ]
+  },
+  {
+    "id": "hues-4",
+    "number": 4,
+    "sourceUrl": "https://www.happyhues.co/palettes/4",
+    "background": "#16161a",
+    "headline": "#fffffe",
+    "paragraph": "#94a1b2",
+    "button": "#7f5af0",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#010101",
+      "main": "#fffffe",
+      "highlight": "#7f5af0",
+      "secondary": "#72757e",
+      "tertiary": "#2cb67d"
+    },
+    "swatches": [
+      "#7f5af0",
+      "#72757e",
+      "#2cb67d",
+      "#fffffe",
+      "#242629"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#16161a"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "button",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#010101"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "secondary",
+        "hex": "#72757e"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#2cb67d"
+      },
+      {
+        "role": "background",
+        "hex": "#242629"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "card background",
+        "hex": "#16161a"
+      },
+      {
+        "role": "card heading",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "stroke",
+        "hex": "#010101"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "secondary",
+        "hex": "#72757e"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#2cb67d"
+      },
+      {
+        "role": "background",
+        "hex": "#16161a"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "card background",
+        "hex": "#242629"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#242629"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "link",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#16161a"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "form input",
+        "hex": "#16161a"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "form button",
+        "hex": "#7f5af0"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#16161a"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#94a1b2"
+      },
+      {
+        "role": "links",
+        "hex": "#7f5af0"
+      }
+    ]
+  },
+  {
+    "id": "hues-5",
+    "number": 5,
+    "sourceUrl": "https://www.happyhues.co/palettes/5",
+    "background": "#f2f7f5",
+    "headline": "#00473e",
+    "paragraph": "#475d5b",
+    "button": "#faae2b",
+    "buttonText": "#00473e",
+    "illustration": {
+      "stroke": "#00332c",
+      "main": "#f2f7f5",
+      "highlight": "#faae2b",
+      "secondary": "#ffa8ba",
+      "tertiary": "#fa5246"
+    },
+    "swatches": [
+      "#faae2b",
+      "#ffa8ba",
+      "#fa5246",
+      "#00473e",
+      "#00473e"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#475d5b"
+      },
+      {
+        "role": "button",
+        "hex": "#faae2b"
+      },
+      {
+        "role": "button text",
+        "hex": "#00473e"
+      },
+      {
+        "role": "stroke",
+        "hex": "#00332c"
+      },
+      {
+        "role": "main",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "highlight",
+        "hex": "#faae2b"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffa8ba"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fa5246"
+      },
+      {
+        "role": "background",
+        "hex": "#00473e"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "card background",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "card heading",
+        "hex": "#00473e"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#475d5b"
+      },
+      {
+        "role": "stroke",
+        "hex": "#00332c"
+      },
+      {
+        "role": "main",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "highlight",
+        "hex": "#faae2b"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffa8ba"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#fa5246"
+      },
+      {
+        "role": "background",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#475d5b"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#475d5b"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#faae2c"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#00473e"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#d8779a"
+      },
+      {
+        "role": "background",
+        "hex": "#ffa8ba"
+      },
+      {
+        "role": "headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#00473e"
+      },
+      {
+        "role": "link",
+        "hex": "#00473e"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "card headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#00473e"
+      },
+      {
+        "role": "background",
+        "hex": "#d8779a"
+      },
+      {
+        "role": "form input",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#00473e"
+      },
+      {
+        "role": "form button",
+        "hex": "#00473e"
+      },
+      {
+        "role": "form button text",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "background",
+        "hex": "#f2f7f5"
+      },
+      {
+        "role": "headline",
+        "hex": "#00473e"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#475d5b"
+      },
+      {
+        "role": "links",
+        "hex": "#faae2b"
+      }
+    ]
+  },
+  {
+    "id": "hues-6",
+    "number": 6,
+    "sourceUrl": "https://www.happyhues.co/palettes/6",
+    "background": "#fffffe",
+    "headline": "#2b2c34",
+    "paragraph": "#2b2c34",
+    "button": "#6246ea",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#2b2c34",
+      "main": "#fffffe",
+      "highlight": "#6246ea",
+      "secondary": "#d1d1e9",
+      "tertiary": "#e45858"
+    },
+    "swatches": [
+      "#6246ea",
+      "#d1d1e9",
+      "#e45858",
+      "#2b2c34",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "button",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "secondary",
+        "hex": "#d1d1e9"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e45858"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card background",
+        "hex": "#d1d1e9"
+      },
+      {
+        "role": "card heading",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "stroke",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "secondary",
+        "hex": "#d1d1e9"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e45858"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card background",
+        "hex": "#d1d1e9"
+      },
+      {
+        "role": "card headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#e45858"
+      },
+      {
+        "role": "background",
+        "hex": "#d1d1e9"
+      },
+      {
+        "role": "headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "link",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "background",
+        "hex": "#e45858"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "form button",
+        "hex": "#6246ea"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2b2c34"
+      },
+      {
+        "role": "links",
+        "hex": "#6246ea"
+      }
+    ]
+  },
+  {
+    "id": "hues-7",
+    "number": 7,
+    "sourceUrl": "https://www.happyhues.co/palettes/7",
+    "background": "#fec7d7",
+    "headline": "#0e172c",
+    "paragraph": "#0e172c",
+    "button": "#0e172c",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#0e172c",
+      "main": "#f9f8fc",
+      "highlight": "#fec7d7",
+      "secondary": "#d9d4e7",
+      "tertiary": "#a786df"
+    },
+    "swatches": [
+      "#fec7d7",
+      "#d9d4e7",
+      "#a786df",
+      "#0e172c",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fec7d7"
+      },
+      {
+        "role": "headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "button",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "main",
+        "hex": "#f9f8fc"
+      },
+      {
+        "role": "highlight",
+        "hex": "#fec7d7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#a786df"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card background",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "card heading",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "stroke",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "main",
+        "hex": "#f9f8fc"
+      },
+      {
+        "role": "highlight",
+        "hex": "#fec7d7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#a786df"
+      },
+      {
+        "role": "background",
+        "hex": "#fec7d7"
+      },
+      {
+        "role": "headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#a786df"
+      },
+      {
+        "role": "background",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "link",
+        "hex": "#a786df"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "card headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "background",
+        "hex": "#a786df"
+      },
+      {
+        "role": "form input",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "form button",
+        "hex": "#a786df"
+      },
+      {
+        "role": "form button text",
+        "hex": "#d9d4e7"
+      },
+      {
+        "role": "background",
+        "hex": "#fec7d7"
+      },
+      {
+        "role": "headline",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#0e172c"
+      },
+      {
+        "role": "links",
+        "hex": "#fec7d7"
+      }
+    ]
+  },
+  {
+    "id": "hues-8",
+    "number": 8,
+    "sourceUrl": "https://www.happyhues.co/palettes/8",
+    "background": "#f8f5f2",
+    "headline": "#232323",
+    "paragraph": "#222525",
+    "button": "#078080",
+    "buttonText": "#232323",
+    "illustration": {
+      "stroke": "#232323",
+      "main": "#fffffe",
+      "highlight": "#078080",
+      "secondary": "#f45d48",
+      "tertiary": "#f8f5f2"
+    },
+    "swatches": [
+      "#078080",
+      "#f45d48",
+      "#f8f5f2",
+      "#232323",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "button",
+        "hex": "#078080"
+      },
+      {
+        "role": "button text",
+        "hex": "#232323"
+      },
+      {
+        "role": "stroke",
+        "hex": "#232323"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#078080"
+      },
+      {
+        "role": "secondary",
+        "hex": "#f45d48"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#222525"
+      },
+      {
+        "role": "card background",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "card heading",
+        "hex": "#232323"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "stroke",
+        "hex": "#232323"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#078080"
+      },
+      {
+        "role": "secondary",
+        "hex": "#f45d48"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "background",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#078080"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#078080"
+      },
+      {
+        "role": "background",
+        "hex": "#feefe8"
+      },
+      {
+        "role": "headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "link",
+        "hex": "#f45d48"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "background",
+        "hex": "#078080"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#232323"
+      },
+      {
+        "role": "form button",
+        "hex": "#f45d48"
+      },
+      {
+        "role": "form button text",
+        "hex": "#232323"
+      },
+      {
+        "role": "background",
+        "hex": "#f8f5f2"
+      },
+      {
+        "role": "headline",
+        "hex": "#232323"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#222525"
+      },
+      {
+        "role": "links",
+        "hex": "#078080"
+      }
+    ]
+  },
+  {
+    "id": "hues-9",
+    "number": 9,
+    "sourceUrl": "https://www.happyhues.co/palettes/9",
+    "background": "#eff0f3",
+    "headline": "#0d0d0d",
+    "paragraph": "#2a2a2a",
+    "button": "#ff8e3c",
+    "buttonText": "#0d0d0d",
+    "illustration": {
+      "stroke": "#0d0d0d",
+      "main": "#eff0f3",
+      "highlight": "#ff8e3c",
+      "secondary": "#fffffe",
+      "tertiary": "#d9376e"
+    },
+    "swatches": [
+      "#ff8e3c",
+      "#fffffe",
+      "#d9376e",
+      "#0d0d0d",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "button",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "button text",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "stroke",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "main",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "secondary",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#d9376e"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "card background",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "card heading",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "stroke",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "main",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "secondary",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#d9376e"
+      },
+      {
+        "role": "background",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "link",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "card headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "background",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "form input",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "form button",
+        "hex": "#ff8e3c"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#eff0f3"
+      },
+      {
+        "role": "headline",
+        "hex": "#0d0d0d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2a2a2a"
+      },
+      {
+        "role": "links",
+        "hex": "#ff8e3c"
+      }
+    ]
+  },
+  {
+    "id": "hues-10",
+    "number": 10,
+    "sourceUrl": "https://www.happyhues.co/palettes/10",
+    "background": "#004643",
+    "headline": "#fffffe",
+    "paragraph": "#abd1c6",
+    "button": "#f9bc60",
+    "buttonText": "#001e1d",
+    "illustration": {
+      "stroke": "#001e1d",
+      "main": "#e8e4e6",
+      "highlight": "#f9bc60",
+      "secondary": "#abd1c6",
+      "tertiary": "#e16162"
+    },
+    "swatches": [
+      "#f9bc60",
+      "#abd1c6",
+      "#e16162",
+      "#fffffe",
+      "#abd1c6"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#004643"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "button",
+        "hex": "#f9bc60"
+      },
+      {
+        "role": "button text",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "stroke",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "main",
+        "hex": "#e8e4e6"
+      },
+      {
+        "role": "highlight",
+        "hex": "#f9bc60"
+      },
+      {
+        "role": "secondary",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e16162"
+      },
+      {
+        "role": "background",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "headline",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#0f3433"
+      },
+      {
+        "role": "card background",
+        "hex": "#004643"
+      },
+      {
+        "role": "card heading",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "stroke",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "main",
+        "hex": "#e8e4e6"
+      },
+      {
+        "role": "highlight",
+        "hex": "#f9bc60"
+      },
+      {
+        "role": "secondary",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e16162"
+      },
+      {
+        "role": "background",
+        "hex": "#004643"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "card background",
+        "hex": "#e8e4e6"
+      },
+      {
+        "role": "card headline",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#004643"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "background",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "headline",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#e8e4e6"
+      },
+      {
+        "role": "link",
+        "hex": "#f9bc60"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#004643"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#e8e4e6"
+      },
+      {
+        "role": "background",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "form input",
+        "hex": "#004643"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "form button",
+        "hex": "#f9bc60"
+      },
+      {
+        "role": "form button text",
+        "hex": "#001e1d"
+      },
+      {
+        "role": "background",
+        "hex": "#004643"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#abd1c6"
+      },
+      {
+        "role": "links",
+        "hex": "#f9bc60"
+      }
+    ]
+  },
+  {
+    "id": "hues-11",
+    "number": 11,
+    "sourceUrl": "https://www.happyhues.co/palettes/11",
+    "background": "#f9f4ef",
+    "headline": "#020826",
+    "paragraph": "#716040",
+    "button": "#8c7851",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#020826",
+      "main": "#fffffe",
+      "highlight": "#8c7851",
+      "secondary": "#eaddcf",
+      "tertiary": "#f25042"
+    },
+    "swatches": [
+      "#8c7851",
+      "#eaddcf",
+      "#f25042",
+      "#020826",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#f9f4ef"
+      },
+      {
+        "role": "headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#716040"
+      },
+      {
+        "role": "button",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#020826"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "secondary",
+        "hex": "#eaddcf"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f25042"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#716040"
+      },
+      {
+        "role": "card background",
+        "hex": "#eaddcf"
+      },
+      {
+        "role": "card heading",
+        "hex": "#020826"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#716040"
+      },
+      {
+        "role": "stroke",
+        "hex": "#020826"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "secondary",
+        "hex": "#eaddcf"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f25042"
+      },
+      {
+        "role": "background",
+        "hex": "#f9f4ef"
+      },
+      {
+        "role": "headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#716040"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#716040"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#f25042"
+      },
+      {
+        "role": "background",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#020826"
+      },
+      {
+        "role": "link",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#eaddcf"
+      },
+      {
+        "role": "card headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#020826"
+      },
+      {
+        "role": "background",
+        "hex": "#f25042"
+      },
+      {
+        "role": "form input",
+        "hex": "#eaddcf"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#020826"
+      },
+      {
+        "role": "form button",
+        "hex": "#8c7851"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#f9f4ef"
+      },
+      {
+        "role": "headline",
+        "hex": "#020826"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#716040"
+      },
+      {
+        "role": "links",
+        "hex": "#8c7851"
+      }
+    ]
+  },
+  {
+    "id": "hues-12",
+    "number": 12,
+    "sourceUrl": "https://www.happyhues.co/palettes/12",
+    "background": "#232946",
+    "headline": "#fffffe",
+    "paragraph": "#b8c1ec",
+    "button": "#eebbc3",
+    "buttonText": "#232946",
+    "illustration": {
+      "stroke": "#121629",
+      "main": "#b8c1ec",
+      "highlight": "#eebbc3",
+      "secondary": "#fffffe",
+      "tertiary": "#eebbc3"
+    },
+    "swatches": [
+      "#eebbc3",
+      "#fffffe",
+      "#eebbc3",
+      "#fffffe",
+      "#d4d8f0"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#232946"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "button",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "button text",
+        "hex": "#232946"
+      },
+      {
+        "role": "stroke",
+        "hex": "#121629"
+      },
+      {
+        "role": "main",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "highlight",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "secondary",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "background",
+        "hex": "#d4d8f0"
+      },
+      {
+        "role": "headline",
+        "hex": "#232946"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#232946"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card heading",
+        "hex": "#232946"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#232946"
+      },
+      {
+        "role": "stroke",
+        "hex": "#121629"
+      },
+      {
+        "role": "main",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "highlight",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "secondary",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "background",
+        "hex": "#232946"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#232946"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#232946"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#232946"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#d4939d"
+      },
+      {
+        "role": "background",
+        "hex": "#eebbc3"
+      },
+      {
+        "role": "headline",
+        "hex": "#232946"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#232946"
+      },
+      {
+        "role": "link",
+        "hex": "#232946"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#232946"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#232946"
+      },
+      {
+        "role": "background",
+        "hex": "#d4939d"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#232946"
+      },
+      {
+        "role": "form button",
+        "hex": "#232946"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#232946"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#b8c1ec"
+      },
+      {
+        "role": "links",
+        "hex": "#eebbc3"
+      }
+    ]
+  },
+  {
+    "id": "hues-13",
+    "number": 13,
+    "sourceUrl": "https://www.happyhues.co/palettes/13",
+    "background": "#0f0e17",
+    "headline": "#fffffe",
+    "paragraph": "#a7a9be",
+    "button": "#ff8906",
+    "buttonText": "#fffffe",
+    "illustration": {
+      "stroke": "#fffffe",
+      "highlight": "#ff8906",
+      "secondary": "#f25f4c",
+      "tertiary": "#e53170"
+    },
+    "swatches": [
+      "#ff8906",
+      "#f25f4c",
+      "#e53170",
+      "#fffffe",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "button",
+        "hex": "#ff8906"
+      },
+      {
+        "role": "button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "stroke",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8906"
+      },
+      {
+        "role": "secondary",
+        "hex": "#f25f4c"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e53170"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#2e2f3e"
+      },
+      {
+        "role": "card background",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "card heading",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "stroke",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8906"
+      },
+      {
+        "role": "secondary",
+        "hex": "#f25f4c"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#e53170"
+      },
+      {
+        "role": "background",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#ff8906"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#e53170"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "link",
+        "hex": "#e53170"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "background",
+        "hex": "#e53170"
+      },
+      {
+        "role": "form input",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "form button",
+        "hex": "#e53170"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#0f0e17"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#a7a9be"
+      },
+      {
+        "role": "links",
+        "hex": "#ff8906"
+      }
+    ]
+  },
+  {
+    "id": "hues-14",
+    "number": 14,
+    "sourceUrl": "https://www.happyhues.co/palettes/14",
+    "background": "#fffffe",
+    "headline": "#272343",
+    "paragraph": "#2d334a",
+    "button": "#ffd803",
+    "buttonText": "#272343",
+    "illustration": {
+      "stroke": "#272343",
+      "main": "#fffffe",
+      "highlight": "#ffd803",
+      "secondary": "#e3f6f5",
+      "tertiary": "#bae8e8"
+    },
+    "swatches": [
+      "#ffd803",
+      "#e3f6f5",
+      "#bae8e8",
+      "#272343",
+      "#e3f6f5"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "button",
+        "hex": "#ffd803"
+      },
+      {
+        "role": "button text",
+        "hex": "#272343"
+      },
+      {
+        "role": "stroke",
+        "hex": "#272343"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ffd803"
+      },
+      {
+        "role": "secondary",
+        "hex": "#e3f6f5"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#bae8e8"
+      },
+      {
+        "role": "background",
+        "hex": "#e3f6f5"
+      },
+      {
+        "role": "headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card heading",
+        "hex": "#272343"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "stroke",
+        "hex": "#272343"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ffd803"
+      },
+      {
+        "role": "secondary",
+        "hex": "#e3f6f5"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#bae8e8"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "card background",
+        "hex": "#272343"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#bae8e8"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#272343"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#bae8e8"
+      },
+      {
+        "role": "background",
+        "hex": "#e3f6f5"
+      },
+      {
+        "role": "headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "link",
+        "hex": "#272343"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "background",
+        "hex": "#bae8e8"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#272343"
+      },
+      {
+        "role": "form button",
+        "hex": "#272343"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#272343"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#2d334a"
+      },
+      {
+        "role": "links",
+        "hex": "#ffd803"
+      }
+    ]
+  },
+  {
+    "id": "hues-15",
+    "number": 15,
+    "sourceUrl": "https://www.happyhues.co/palettes/15",
+    "background": "#faeee7",
+    "headline": "#33272a",
+    "paragraph": "#594a4e",
+    "button": "#ff8ba7",
+    "buttonText": "#33272a",
+    "illustration": {
+      "stroke": "#33272a",
+      "main": "#fffffe",
+      "highlight": "#ff8ba7",
+      "secondary": "#ffc6c7",
+      "tertiary": "#c3f0ca"
+    },
+    "swatches": [
+      "#ff8ba7",
+      "#ffc6c7",
+      "#c3f0ca",
+      "#33272a",
+      "#fffffe"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "button",
+        "hex": "#ff8ba7"
+      },
+      {
+        "role": "button text",
+        "hex": "#33272a"
+      },
+      {
+        "role": "stroke",
+        "hex": "#33272a"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8ba7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffc6c7"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#c3f0ca"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "card background",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "card heading",
+        "hex": "#33272a"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "stroke",
+        "hex": "#33272a"
+      },
+      {
+        "role": "main",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "highlight",
+        "hex": "#ff8ba7"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffc6c7"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#c3f0ca"
+      },
+      {
+        "role": "background",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "card background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#ffc6c7"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#33272a"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#33272a"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "link",
+        "hex": "#ff8ba7"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "card headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "background",
+        "hex": "#33272a"
+      },
+      {
+        "role": "form input",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#33272a"
+      },
+      {
+        "role": "form button",
+        "hex": "#ff8ba7"
+      },
+      {
+        "role": "form button text",
+        "hex": "#33272a"
+      },
+      {
+        "role": "background",
+        "hex": "#faeee7"
+      },
+      {
+        "role": "headline",
+        "hex": "#33272a"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#594a4e"
+      },
+      {
+        "role": "links",
+        "hex": "#ff8ba7"
+      }
+    ]
+  },
+  {
+    "id": "hues-16",
+    "number": 16,
+    "sourceUrl": "https://www.happyhues.co/palettes/16",
+    "background": "#55423d",
+    "headline": "#fffffe",
+    "paragraph": "#fff3ec",
+    "button": "#ffc0ad",
+    "buttonText": "#271c19",
+    "illustration": {
+      "stroke": "#140d0b",
+      "main": "#fff3ec",
+      "highlight": "#e78fb3",
+      "secondary": "#ffc0ad",
+      "tertiary": "#9656a1"
+    },
+    "swatches": [
+      "#e78fb3",
+      "#ffc0ad",
+      "#9656a1",
+      "#fffffe",
+      "#271c19"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#55423d"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "button",
+        "hex": "#ffc0ad"
+      },
+      {
+        "role": "button text",
+        "hex": "#271c19"
+      },
+      {
+        "role": "stroke",
+        "hex": "#140d0b"
+      },
+      {
+        "role": "main",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "highlight",
+        "hex": "#e78fb3"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffc0ad"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "background",
+        "hex": "#271c19"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "card background",
+        "hex": "#55423d"
+      },
+      {
+        "role": "card heading",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "stroke",
+        "hex": "#140d0b"
+      },
+      {
+        "role": "main",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "highlight",
+        "hex": "#e78fb3"
+      },
+      {
+        "role": "secondary",
+        "hex": "#ffc0ad"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "background",
+        "hex": "#55423d"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "card background",
+        "hex": "#ffc0ad"
+      },
+      {
+        "role": "card headline",
+        "hex": "#271c19"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#271c19"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "background",
+        "hex": "#ffc0ad"
+      },
+      {
+        "role": "headline",
+        "hex": "#271c19"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#271c19"
+      },
+      {
+        "role": "link",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card headline",
+        "hex": "#271c19"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#271c19"
+      },
+      {
+        "role": "background",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "form input",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#271c19"
+      },
+      {
+        "role": "form button",
+        "hex": "#9656a1"
+      },
+      {
+        "role": "form button text",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "background",
+        "hex": "#55423d"
+      },
+      {
+        "role": "headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#fff3ec"
+      },
+      {
+        "role": "links",
+        "hex": "#e78fb3"
+      }
+    ]
+  },
+  {
+    "id": "hues-17",
+    "number": 17,
+    "sourceUrl": "https://www.happyhues.co/palettes/17",
+    "background": "#fef6e4",
+    "headline": "#001858",
+    "paragraph": "#172c66",
+    "button": "#f582ae",
+    "buttonText": "#001858",
+    "illustration": {
+      "stroke": "#001858",
+      "main": "#f3d2c1",
+      "highlight": "#fef6e4",
+      "secondary": "#8bd3dd",
+      "tertiary": "#f582ae"
+    },
+    "swatches": [
+      "#fef6e4",
+      "#8bd3dd",
+      "#f582ae",
+      "#001858",
+      "#f3d2c1"
+    ],
+    "colors": [
+      {
+        "role": "background",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "button",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "button text",
+        "hex": "#001858"
+      },
+      {
+        "role": "stroke",
+        "hex": "#001858"
+      },
+      {
+        "role": "main",
+        "hex": "#f3d2c1"
+      },
+      {
+        "role": "highlight",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "secondary",
+        "hex": "#8bd3dd"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "background",
+        "hex": "#f3d2c1"
+      },
+      {
+        "role": "headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "sub headline",
+        "hex": "#172c66"
+      },
+      {
+        "role": "card background",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "card heading",
+        "hex": "#001858"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "stroke",
+        "hex": "#001858"
+      },
+      {
+        "role": "main",
+        "hex": "#f3d2c1"
+      },
+      {
+        "role": "highlight",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "secondary",
+        "hex": "#8bd3dd"
+      },
+      {
+        "role": "tertiary",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "background",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "card background",
+        "hex": "#001858"
+      },
+      {
+        "role": "card headline",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "card tag background",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "card tag text",
+        "hex": "#001858"
+      },
+      {
+        "role": "card highlight",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "background",
+        "hex": "#fffffe"
+      },
+      {
+        "role": "headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "link",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "card backgroud",
+        "hex": "#f3d2c1"
+      },
+      {
+        "role": "card headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "card paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "background",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "form input",
+        "hex": "#f3d2c1"
+      },
+      {
+        "role": "label &amp; placeholder",
+        "hex": "#001858"
+      },
+      {
+        "role": "form button",
+        "hex": "#f582ae"
+      },
+      {
+        "role": "form button text",
+        "hex": "#001858"
+      },
+      {
+        "role": "background",
+        "hex": "#fef6e4"
+      },
+      {
+        "role": "headline",
+        "hex": "#001858"
+      },
+      {
+        "role": "paragraph",
+        "hex": "#172c66"
+      },
+      {
+        "role": "links",
+        "hex": "#fef6e4"
+      }
+    ]
+  }
+]

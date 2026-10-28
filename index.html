@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffefd" />
+    <meta name="description" content="导入自己的文字，逐句听、慢慢写。个人精听练习台。" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>听写练习台</title>
+    <style>
+      html { background: #fffefd; }
+      html[data-theme="dark"] { background: #24202e; }
+      #launch-help { max-width: 600px; margin: 12vh auto; padding: 32px; color: #595376; background: #ffffff; border: 1px solid #e5dfec; border-radius: 18px; font: 15px/1.9 "Segoe UI", "Microsoft YaHei", sans-serif; }
+      html[data-theme="dark"] #launch-help { color: #f3edf9; background: #2e283b; border-color: #51445f; }
+      #launch-help h1 { margin: 0 0 14px; font-size: 24px; }
+      #launch-help a { display: inline-block; padding: 9px 18px; background: #f696d4; color: #43314e; border-radius: 10px; text-decoration: none; }
+      #launch-help code { padding: 2px 6px; border: 1px solid currentColor; border-radius: 3px; }
+      #launch-help small { display: block; margin-top: 16px; }
+      #launch-help [hidden] { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <main id="launch-help">
+        <h1>通过启动入口打开听写练习台</h1>
+        <p>直接双击 HTML 文件无法启动这个应用。请先在 Windows 文件资源管理器中运行启动脚本：</p>
+        <ol>
+          <li>按 <strong>Win + E</strong>，打开项目文件夹。</li>
+          <li>双击 <code>启动练习.cmd</code>，保留启动窗口。</li>
+          <li>在浏览器中打开下面的练习页面。</li>
+        </ol>
+        <a href="http://127.0.0.1:5173/">打开练习页面</a>
+        <small>Codex 中的文件链接只会预览脚本内容，需要到 Windows 文件资源管理器中执行。</small>
+      </main>
+    </div>
+    <script>
+      if (location.protocol !== 'file:') {
+        const help = document.getElementById('launch-help');
+        help.querySelector('h1').textContent = '正在打开听写练习台';
+        help.querySelector('p').textContent = '稍等片刻，让练习页面准备好。如果没有完成加载，请刷新页面重试。';
+        help.querySelector('ol').hidden = true;
+        help.querySelector('small').hidden = true;
+        const link = help.querySelector('a');
+        link.href = location.href;
+        link.textContent = '重新加载';
+      }
+    </script>
+    <noscript>练习需要 JavaScript，请在浏览器设置中启用后刷新页面。</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
