@@ -6,6 +6,17 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.3 · 修复注册邮件与点击确认流程
+
+2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.3) · [原提交 a37d0e8](https://github.com/MIMAO28/listening-desk/commit/a37d0e8b8ee54e5f081ea1d0ff6f00a502977d02)
+
+- 按用户要求取消注册及找回密码的手输验证码，统一为邮件按钮和站内确认页面。
+- 云端两封模板已直接更新为明显的中文确认按钮，链接先打开本站，不要求访问外部确认网页。
+- 站内读取TokenHash后从地址栏移除；仅点击确认才提交验证，降低邮件预览提前消耗链接的风险。
+- 注册后提示检查确认邮件；对已确认邮箱重复注册时提示直接登录，增加未确认账号重新发信及60秒冷却。
+- 补齐找回密码确认与修改密码后进入学习面板的流程。
+- 后台实际日志显示最近重复注册已存在邮箱的请求，及旧链接重复访问后的失效记录；不把注册200响应等同于已发信。
+
 ## v0.6.2 · 清晰中文邮件与站内验证码
 
 2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.2) · [原提交 bccb1ae](https://github.com/MIMAO28/listening-desk/commit/bccb1aea6a0fbe0b9a11f8fdb1780da1cb8aaaa0)
