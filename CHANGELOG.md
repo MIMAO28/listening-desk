@@ -6,6 +6,15 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.2 · 清晰中文邮件与站内验证码
+
+2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.2) · [原提交 bccb1ae](https://github.com/MIMAO28/listening-desk/commit/bccb1aea6a0fbe0b9a11f8fdb1780da1cb8aaaa0)
+
+- 注册邮箱验证和找回密码改为站内输入数字验证码，无需访问外部确认链接。
+- 提供大号数字、中文说明和返回网站按钮的注册/找回邮件模板，需要站点所有者在Supabase保存。
+- 增加验证码错误/过期中文提示、重新发送和60秒冷却；保留邮箱密码登录。
+- 用户已确认新加坡账号服务在手机5G关闭VPN后能登录；不据此承诺所有网络可达。
+
 ## v0.6.1 · 学习面板与登录窗口快捷键隔离
 
 2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.1) · [原提交 f42dcbd](https://github.com/MIMAO28/listening-desk/commit/f42dcbd5c67cad7edb5d786851ec862ff45836f9)
