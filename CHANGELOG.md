@@ -6,6 +6,15 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.5 · Game-icons等级徽章与主题色图鉴
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.5) · [原提交 2f60fa9](https://github.com/MIMAO28/listening-desk/commit/2f60fa9defa1414a550b53f031c5bcf18f9b6a2a)
+
+- 将学习面板等级数字圆点替换为精选Game-icons图标，1–20级各有独立图案，从幼芽、书卷到星轨、星河。
+- 图标和边框随17套主题及日夜模式变化；20级后循环图案并额外显示实际等级编号。
+- 新增默认收起的等级图鉴，可查看整套20种图标；学习积分、升级公式和云端记录不变。
+- SVG随网站本地托管，不依赖外部图标服务；提供Lorc、Delapouite署名、逐项来源及CC BY3.0许可链接。
+
 ## v0.6.4 · 八音色精简与自然语音准备提速
 
 2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.4) · [原提交 2c9c020](https://github.com/MIMAO28/listening-desk/commit/2c9c020e1420de884d86c842c7d4f35226d527ab)
