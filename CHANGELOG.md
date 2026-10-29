@@ -6,6 +6,16 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.7.0 · 保存本机材料和音频，面板继续训练
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.7.0) · [原提交 4781ac2](https://github.com/MIMAO28/listening-desk/commit/4781ac2bc8bd2a1cdaf6df6df7b30bc12fa620ac)
+
+- 按账号在本浏览器保存材料、逐句听写、所在句子和音色；重开页面不再清空。
+- 学习面板新增继续上次训练，本机材料和新产生的学习记录可以回到原材料；不同账号切换本机空间并停止播放。
+- 已生成音频逐句存入IndexedDB，再次准备优先读取缓存，仅补生成缺失部分；固定模型版本与音色隔离，缓存上限256MiB，空间受限时提示。
+- 模型显式开启浏览器缓存，运行库WASM及音色增加固定版本持久缓存，减少重开后重复下载。
+- 本版支持同设备同浏览器恢复，材料原文不上传，跨设备仍需导入；旧版已丢失的原文不能由统计还原。首次下载约100MB与新文章合成仍需等待。
+
 ## v0.6.8 · 等级图标由简到繁，每级独立中文名
 
 2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.8) · [原提交 c0664a4](https://github.com/MIMAO28/listening-desk/commit/c0664a4805894072a234bd503e8aade869bdeec3)

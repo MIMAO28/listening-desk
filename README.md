@@ -14,14 +14,14 @@
 - 左侧原文、右侧听写、专注练习、阅读字号与栏宽调整。
 - 中文多义释义、变形词原形补充、整句翻译；桌面固定查询输入、手机浮窗。
 - 17套Happy Hues配色、独立日夜模式、随主题换色的Yippee角色。
-- 材料、听写和设置只保留在当前页面会话，刷新重新开始。
+- 材料、听写、音色和位置按账号保存在本浏览器；学习面板可继续上次训练。已生成音频存入本机缓存，重开后优先恢复，存储失败会提示；不提供材料跨设备同步。
 - 登录后的标题和学习统计保存至Supabase，用户只能读取自己的记录；原文与听写不上传。
 
 ## GitHub分支与版本
 
 - `main`：构建后的静态网站、更新日志和README，供GitHub Pages发布。
 - [`source`](https://github.com/MIMAO28/listening-desk/tree/source)：当前可开发的React/TypeScript源码、公开资源和依赖锁文件。
-- [`source-v0.6.8`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.8)：当前源码的固定快照。
+- [`source-v0.7.0`](https://github.com/MIMAO28/listening-desk/tree/source-v0.7.0)：当前源码的固定快照。
 - `v0.1.0` 起：对应网站部署的静态文件标签，每版都有中文Release说明。
 
 早于首次GitHub Pages发布的界面迭代没有单独GitHub快照；早期源码也未逐版保存，不将最新源码伪称为历史源码。网址中的`?v=8`等参数是缓存刷新标记，不是固定历史版本链接。
