@@ -6,6 +6,15 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.8 · 等级图标由简到繁，每级独立中文名
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.8) · [原提交 c0664a4](https://github.com/MIMAO28/listening-desk/commit/c0664a4805894072a234bd503e8aade869bdeec3)
+
+- 对4105项保留图标按96px轮廓边界与细线密度递增排序，低等级为简洁图形，越往后轮廓和纹理越丰富。
+- 为所有等级生成独立中文名称，按初学、启程、研习、洞察、凌云、星辉等阶段递进；面板标题、图鉴及徽章提示统一显示。
+- 整套用完后图标继续循环，并在名称中附加境次以区分新一轮。
+- 保留扑克/骰子/数字排除清单、主题色联动、分页浏览及原积分规则；新增可重建排序脚本和逐级分数/名称清单。
+
 ## v0.6.7 · 剔除扑克牌与数字类等级图标
 
 2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.7) · [原提交 4d2f040](https://github.com/MIMAO28/listening-desk/commit/4d2f040b6d918693d2ea9c427817f09feb3d9d26)
