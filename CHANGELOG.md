@@ -6,6 +6,16 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.4 · 八音色精简与自然语音准备提速
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.4) · [原提交 2c9c020](https://github.com/MIMAO28/listening-desk/commit/2c9c020e1420de884d86c842c7d4f35226d527ab)
+
+- 英语仅保留Heart、Bella、Michael、Fenrir、Emma、Isabella、George、Fable八个自然音色；日语训练保留。
+- 同一页面复用已加载的自然语音引擎；换材料和试听不再销毁模型。
+- 按音色与句子复用音频，返回准备过的声音无需重新合成；仅合成新增句子，内存上限96MiB。
+- 取消采用任务失效与串行调度，避免旧任务串音；保留整篇准备后直接切句和每句三遍连播。
+- 首次约100MB资源下载及新句合成仍需等待，未降低音质。
+
 ## v0.6.3 · 修复注册邮件与点击确认流程
 
 2026-10-28 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.3) · [原提交 a37d0e8](https://github.com/MIMAO28/listening-desk/commit/a37d0e8b8ee54e5f081ea1d0ff6f00a502977d02)
