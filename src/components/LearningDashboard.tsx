@@ -3,6 +3,7 @@ import type { User } from '@supabase/supabase-js'
 import { dayKey, learningSummary, levelProgress } from '../lib/learning.ts'
 import type { LearningSession } from '../lib/learning.ts'
 import { LevelBadge, LevelBadgeCollection } from './LevelBadge.tsx'
+import { levelBadge } from '../lib/levelBadges.ts'
 
 export function LearningDashboard({ user, sessions, loading, error, onLogin, onRefresh }: {
   user: User | null; sessions: LearningSession[]; loading: boolean; error: string; onLogin: () => void; onRefresh: () => void
@@ -18,7 +19,7 @@ export function LearningDashboard({ user, sessions, loading, error, onLogin, onR
     <div className="learning-heading"><div><h1>学习面板</h1><p>{user.email?.split('@')[0]}，这里是你的练习记录。</p></div><button className="secondary-button" disabled={loading} onClick={onRefresh}>{loading ? '读取中…' : '刷新记录'}</button></div>
     {error && <div className="alert error" role="alert">{error} <button className="text-button" onClick={onRefresh}>重试</button></div>}
     {loading && sessions.length === 0 ? <p role="status">正在读取你的学习记录…</p> : <>
-    <section className="level-panel" aria-label="学习等级"><LevelBadge level={level.level} /><div className="level-description"><h2>Lv.{level.level} {level.title}</h2><div className="level-numbers"><span>累计 {summary.points} 分</span><span>再得 {level.toNext - level.current} 分升级</span></div><progress max={level.toNext} value={level.current} aria-label="升级进度" /><small>每写对一个英文单词得 1 分；同一轮同一句反复检查只补新增分数。等级代表练习积累，不是语言能力评级。</small></div></section>
+    <section className="level-panel" aria-label="学习等级"><LevelBadge level={level.level} /><div className="level-description"><h2>Lv.{level.level} {levelBadge(level.level).name}</h2><div className="level-numbers"><span>累计 {summary.points} 分</span><span>再得 {level.toNext - level.current} 分升级</span></div><progress max={level.toNext} value={level.current} aria-label="升级进度" /><small>每写对一个英文单词得 1 分；同一轮同一句反复检查只补新增分数。等级代表练习积累，不是语言能力评级。</small></div></section>
     <LevelBadgeCollection current={level.level} />
     <section className="study-streak"><strong>连续学习 <b>{summary.streak}</b> 天</strong><span>完成并检查至少一句听写，记作当天学习。按北京时间统计。</span></section>
     <div className="learning-stats" aria-label="最近30天统计">{[

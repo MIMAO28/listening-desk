@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import sharp from 'sharp';
+const icons=JSON.parse(fs.readFileSync('src/lib/levelIcons.json'));
+const prefixes='初学 初识 初见 初探 初悟 启程 启明 启思 启知 见微 见远 见真 见闻 识途 识理 识微 寻声 寻知 寻意 寻真 求索 求知 求真 求明 入境 入微 入理 入心 知新 知远 知行 知微 明辨 明理 明心 明澈 精研 精进 精思 精修 深听 深思 深悟 深观 洞见 洞察 洞明 洞彻 通晓 通达 通明 通悟 卓识 卓见 卓然 卓越 广博 广识 广闻 广悟 澄明 澄心 澄观 澄思 玄思 玄观 玄知 玄境 灵犀 灵悟 灵明 灵思 观澜 观星 观海 观宙 凌云 凌峰 凌霄 凌虚 星河 星穹 星辰 星辉 太初 太和 太清 太玄 无涯 无界 无极 无尽'.split(' ');
+const suffixes='微光 新芽 清露 晨风 流泉 竹影 青石 白帆 远山 长溪 星火 林间 松涛 云岚 秋水 晴川 飞羽 云舟 书卷 墨痕 清音 回响 心灯 青岚 月华 星芒 霜华 雪峰 远帆 海潮 潮汐 岚光 浮云 烟霞 天光 碧落 长空 晨曦 暮辉 流萤 露华 云影 玉衡 清晖 山河 容光 天际 长风 朝阳'.split(' ');
+const rows=[];let cursor=0;
+await Promise.all(Array.from({length:8},async()=>{while(cursor<icons.length){const id=icons[cursor++];const svg=fs.readFileSync(`public/icons/levels/${id}.svg`);const pixels=await sharp(svg).resize(96,96).flatten({background:'#000'}).greyscale().raw().toBuffer();let edges=0,detail=0;for(let y=1;y<95;y++)for(let x=1;x<95;x++){const i=y*96+x,v=pixels[i]>127;if(v!==(pixels[i+1]>127))edges++;if(v!==(pixels[i+96]>127))edges++;if(v!== (pixels[i-1]>127)&&v!==(pixels[i+1]>127))detail++;if(v!==(pixels[i-96]>127)&&v!==(pixels[i+96]>127))detail++;}rows.push({id,complexity:edges+detail*3});}}));
+rows.sort((a,b)=>a.complexity-b.complexity||a.id.localeCompare(b.id,'en'));
+const names=rows.map((_,i)=>`${prefixes[Math.floor(i/suffixes.length)]}·${suffixes[i%suffixes.length]}`);if(names.some(x=>x.includes('undefined'))||new Set(names).size!==icons.length)throw Error('Invalid names');
+fs.writeFileSync('src/lib/levelIcons.json',JSON.stringify(rows.map(r=>r.id))+'\n');fs.writeFileSync('src/lib/levelNames.json',JSON.stringify(names)+'\n');fs.writeFileSync('public/icons/levels/ORDER.json',JSON.stringify(rows.map((r,i)=>({level:i+1,name:names[i],...r})),null,2)+'\n');
+fs.writeFileSync('public/icons/levels/CREDITS.txt',`Game-icons.net curated level icons, ${rows.length} items\nSnapshot:82d948812bfe3f269ef8f731dcdb07b08160edc4\nAuthors and CC BY3.0/CC0 license: see LICENSE.txt\nChanges: theme colors; complexity-based order; original Chinese level names.\nComplexity: luminance edges and narrow details at 96px. Visual estimate, not semantic difficulty.\n\n`+rows.map((r,i)=>`Lv.${i+1} ${names[i]}: ${r.id}\nhttps://game-icons.net/1x1/${r.id}.html`).join('\n\n'));
+console.log(JSON.stringify({total:rows.length,first:rows.slice(0,8),last:rows.slice(-4)}));
