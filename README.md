@@ -9,6 +9,7 @@
 - 播放从当前句连续到末尾；开启三遍后，每句三遍再推进。鼠标和快捷键选句行为一致。
 - 英语仅保留8个Kokoro自然音色，支持试听和变速；日语保留浏览器对应语言声音。
 - Kokoro 8个自然英语音色；本机准备整篇音频后，切句直接播放。首次下载模型约100MB。
+- 20种随主题配色的Game-icons等级徽章，可展开等级图鉴。
 - 邮箱账号、个人学习面板、30天日历、前台有效练习时长与积分等级；每句听写可检查，重复提交不重复加分。
 - 左侧原文、右侧听写、专注练习、阅读字号与栏宽调整。
 - 中文多义释义、变形词原形补充、整句翻译；桌面固定查询输入、手机浮窗。
@@ -20,7 +21,7 @@
 
 - `main`：构建后的静态网站、更新日志和README，供GitHub Pages发布。
 - [`source`](https://github.com/MIMAO28/listening-desk/tree/source)：当前可开发的React/TypeScript源码、公开资源和依赖锁文件。
-- [`source-v0.6.4`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.4)：当前源码的固定快照。
+- [`source-v0.6.5`](https://github.com/MIMAO28/listening-desk/tree/source-v0.6.5)：当前源码的固定快照。
 - `v0.1.0` 起：对应网站部署的静态文件标签，每版都有中文Release说明。
 
 早于首次GitHub Pages发布的界面迭代没有单独GitHub快照；早期源码也未逐版保存，不将最新源码伪称为历史源码。网址中的`?v=8`等参数是缓存刷新标记，不是固定历史版本链接。
