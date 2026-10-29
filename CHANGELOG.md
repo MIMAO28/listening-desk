@@ -6,6 +6,15 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.6 · 全套4239等级图标，用完再循环
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.6) · [原提交 a4b4972](https://github.com/MIMAO28/listening-desk/commit/a4b4972aaf5fe81a1d411fc8e372d214dedca1fa)
+
+- 导入Game-icons官方仓库完整快照82d9488的4239个SVG，1–4239级分别使用不同素材，第4240级才开始下一轮。
+- 保留前20级现有图案顺序，其余4219个依次追加，所有图标随网站主题和日夜模式配色。
+- 等级图鉴每页40个、支持直接跳页；默认折叠时不渲染图鉴SVG，避免全套同时加载。
+- 完整SVG同站托管，保留原始全作者许可文件和逐项来源。
+
 ## v0.6.5 · Game-icons等级徽章与主题色图鉴
 
 2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.5) · [原提交 2f60fa9](https://github.com/MIMAO28/listening-desk/commit/2f60fa9defa1414a550b53f031c5bcf18f9b6a2a)
