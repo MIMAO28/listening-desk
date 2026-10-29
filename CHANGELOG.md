@@ -6,6 +6,14 @@
 
 网址里的 ?v=9 等参数用于刷新缓存，不是固定历史版本地址；请用下面的标签和Release查看历史。
 
+## v0.6.7 · 剔除扑克牌与数字类等级图标
+
+2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.7) · [原提交 4d2f040](https://github.com/MIMAO28/listening-desk/commit/4d2f040b6d918693d2ea9c427817f09feb3d9d26)
+
+- 从等级库及当前资源移除134项扑克牌、花色、骰子点数、纯数字和数字等级标记，剩余4105种图标，用完才循环。
+- 保留前20级图案；重排后续等级与图鉴，更新逐项来源，保存排除清单以防后续导入恢复。
+- 等级积分和升级规则不变，图标继续跟随主题及日夜模式。
+
 ## v0.6.6 · 全套4239等级图标，用完再循环
 
 2026-10-29 · [更新说明](https://github.com/MIMAO28/listening-desk/releases/tag/v0.6.6) · [原提交 a4b4972](https://github.com/MIMAO28/listening-desk/commit/a4b4972aaf5fe81a1d411fc8e372d214dedca1fa)
