@@ -20,12 +20,21 @@ self.fetch = (input, init) => {
   return originalFetch(voice ? `${base}model/voices/${voice[1]}.bin` : input, init)
 }
 let model: Promise<KokoroTTS> | undefined
-scope.onmessage = async ({ data }: MessageEvent<{ job: number; texts: string[]; voice: typeof NATURAL_VOICES[number]['id'] }>) => {
+type Job = { job: number; texts: string[]; voice: typeof NATURAL_VOICES[number]['id'] }
+let latest = 0
+let queue = Promise.resolve()
+scope.onmessage = ({ data }: MessageEvent<Job & { cancel?: boolean }>) => {
+  latest = data.job
+  if (!data.cancel) queue = queue.then(() => run(data))
+}
+async function run(data: Job) {
+  if (data.job !== latest) return
   try {
     model ??= KokoroTTS.from_pretrained('model', { dtype: 'q8', device: 'wasm', progress_callback: progress => {
       if (progress.status === 'progress' && 'progress' in progress) scope.postMessage({ kind: 'download', job: data.job, percent: progress.progress })
     } })
     const tts = await model
+    if (data.job !== latest) return
     scope.postMessage({ kind: 'model-ready', job: data.job })
     for (let index = 0; index < data.texts.length; index++) {
       // The upstream stream(string) leaves its splitter open in 1.2.1.
@@ -33,7 +42,9 @@ scope.onmessage = async ({ data }: MessageEvent<{ job: number; texts: string[]; 
       const chunks: Float32Array[] = []
       let rate = 24000, length = 0
       for (const text of speechChunks(data.texts[index])) {
+        if (data.job !== latest) return
         const audio = await tts.generate(text, { voice: data.voice })
+        if (data.job !== latest) return
         chunks.push(new Float32Array(audio.audio)); length += audio.audio.length; rate = audio.sampling_rate
       }
       if (!length) throw new Error('No audio was generated for this sentence')

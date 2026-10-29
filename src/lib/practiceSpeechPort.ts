@@ -13,7 +13,6 @@ export class PracticeSpeechPort implements SpeechPort {
   private source: AudioBufferSourceNode | undefined
   private buffer: AudioBuffer | undefined
   private job = 0
-  private voice = ''
   private activeNatural = false
   private paused = false
   private offset = 0
@@ -31,11 +30,10 @@ export class PracticeSpeechPort implements SpeechPort {
     if (!naturalVoiceId(settings.voiceURI)) this.legacy.prepare(texts, settings, voice)
   }
   isReady(texts: readonly string[], uri: string) {
-    return uri === this.voice && this.preparation.status === 'ready' && texts.every(t => this.buffers.has(t))
+    return texts.length > 0 && texts.every(t => this.buffers.has(JSON.stringify([uri, t])))
   }
   cancelPreparation() {
-    this.job++; this.worker?.terminate(); this.worker = undefined
-    this.buffers.clear(); this.bytes = 0; this.voice = ''
+    this.job++; this.worker?.postMessage({ cancel: true, job: this.job })
     this.publish({ status: 'idle', done: 0, total: 0, percent: 0, generating: false, error: '' })
   }
   prepareNatural(texts: readonly string[], uri: string, onReady?: () => void) {
@@ -45,39 +43,44 @@ export class PracticeSpeechPort implements SpeechPort {
     this.context ??= new AudioContext()
     void this.context.resume().catch(() => {})
     const unique = [...new Set(texts)]
-    this.voice = uri
-    this.publish({ status: 'loading', done: 0, total: unique.length, percent: 0, error: '' })
+    const missing = unique.filter(text => !this.buffers.has(JSON.stringify([uri, text])))
+    const protectedKeys = new Set(unique.map(text => JSON.stringify([uri, text])))
+    this.publish({ status: missing.length ? 'loading' : 'ready', done: unique.length - missing.length, total: unique.length, percent: missing.length ? 0 : 100, error: '' })
+    if (!missing.length) { onReady?.(); return }
     const job = this.job
     const fail = () => {
-      this.worker?.terminate(); this.worker = undefined; this.buffers.clear()
-      this.publish({ status: 'error', error: '自然语音准备未完成。请重试；长文章可拆成几篇，或改用在线声音。' })
+      this.worker?.terminate(); this.worker = undefined; this.buffers.clear(); this.bytes = 0
+      this.publish({ status: 'error', error: '自然语音准备未完成。请重试；长文章可拆成几篇。' })
     }
-    this.worker = new Worker(new URL('./kokoro.worker.ts', import.meta.url), { type: 'module' })
+    this.worker ??= new Worker(new URL('./kokoro.worker.ts', import.meta.url), { type: 'module' })
     this.worker.onerror = fail
     this.worker.onmessage = ({ data }) => {
       if (data.job !== this.job) return
       if (data.kind === 'download') this.publish({ percent: Math.round(data.percent) })
       if (data.kind === 'model-ready') this.publish({ generating: true })
       if (data.kind === 'sentence') {
+        while (this.bytes + data.samples.byteLength > 96 * 1024 * 1024) {
+          const disposable = [...this.buffers.keys()].find(key => !protectedKeys.has(key))
+          if (!disposable) { fail(); return }
+          this.bytes -= this.buffers.get(disposable)!.length * 4; this.buffers.delete(disposable)
+        }
         this.bytes += data.samples.byteLength
-        if (this.bytes > 96 * 1024 * 1024) { fail(); return }
         const audio = this.context!.createBuffer(1, data.samples.length, data.rate)
         audio.copyToChannel(data.samples, 0)
-        this.buffers.set(unique[data.index], audio)
-        this.publish({ done: data.index + 1 })
+        this.buffers.set(JSON.stringify([uri, missing[data.index]]), audio)
+        this.publish({ done: unique.length - missing.length + data.index + 1 })
       }
       if (data.kind === 'done') {
         this.publish({ status: 'ready', percent: 100 })
-        this.worker?.terminate(); this.worker = undefined
         onReady?.()
       }
       if (data.kind === 'error') fail()
     }
-    this.worker.postMessage({ job, texts: unique, voice })
+    this.worker.postMessage({ job, texts: missing, voice })
   }
   speak(text: string, settings: SpeechSettings, onEnd: () => void, onError: (message: string) => void) {
     if (!naturalVoiceId(settings.voiceURI)) { this.activeNatural = false; this.legacy.speak(text, settings, onEnd, onError); return }
-    const buffer = settings.voiceURI === this.voice && this.preparation.status === 'ready' ? this.buffers.get(text) : undefined
+    const buffer = this.buffers.get(JSON.stringify([settings.voiceURI, text]))
     if (!buffer) { onError('请先准备本篇自然语音，完成后切句可直接播放。'); return }
     this.activeNatural = true; this.buffer = buffer; this.offset = 0; this.rate = settings.rate; this.paused = false; this.onEnd = onEnd
     const ticket = ++this.ticket

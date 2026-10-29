@@ -19,7 +19,7 @@ import { DictionaryPanel } from './components/DictionaryPanel.tsx'
 import { HomePage } from './components/HomePage.tsx'
 import { routeFromHash } from './lib/navigation.ts'
 import { voiceDescription, voiceLabel } from './lib/voiceLabels.ts'
-import { englishVoiceChoices, isNaturalVoice } from './lib/preferredEnglishVoice.ts'
+import { isNaturalVoice } from './lib/preferredEnglishVoice.ts'
 import { DICTIONARY_QUERY_LIMIT } from './lib/dictionary.ts'
 import { characterChannels, themeTokens } from './lib/colorThemes.ts'
 import { ThemePicker } from './components/ThemePicker.tsx'
@@ -65,7 +65,7 @@ export function App() {
   const supported = 'AudioContext' in window
   const availableVoices = voices.filter(voice => voice.lang.replace('_', '-').startsWith(material.language.split('-')[0]))
     .sort((a, b) => Number(b.localService) - Number(a.localService) || a.name.localeCompare(b.name))
-  const languageVoices = material.language.startsWith('en') ? [...voices.filter(v => naturalVoiceId(v.voiceURI)), ...englishVoiceChoices(availableVoices.filter(v => !naturalVoiceId(v.voiceURI)))] : availableVoices
+  const languageVoices = material.language.startsWith('en') ? voices.filter(v => naturalVoiceId(v.voiceURI)) : availableVoices
   const selectedVoice = languageVoices.find(voice => voice.voiceURI === preferences.voiceURI)
   const natural = !!selectedVoice && !!naturalVoiceId(selectedVoice.voiceURI)
   const naturalReady = natural && speechPort.isReady(material.sentences.map(s => s.text), selectedVoice!.voiceURI)
@@ -134,7 +134,9 @@ export function App() {
   }, [playback.mode, playback.sentenceIndex, material.id, material.currentIndex, material.sentences.length, updateMaterial])
   const refreshVoices = useCallback(() => {
     if (!supported) return
-    setVoices([...naturalVoiceChoices(), ...('speechSynthesis' in window ? window.speechSynthesis.getVoices() : [])])
+    const japanese = 'speechSynthesis' in window
+      ? window.speechSynthesis.getVoices().filter(voice => voice.lang.replace('_', '-').startsWith('ja')) : []
+    setVoices([...naturalVoiceChoices(), ...japanese])
   }, [supported])
 
   useEffect(() => {
@@ -148,7 +150,7 @@ export function App() {
   useEffect(() => {
     if (voices.length === 0) return
     const english = material.language.startsWith('en')
-    const available = english ? [...voices.filter(v => naturalVoiceId(v.voiceURI)), ...englishVoiceChoices(voices.filter(v => !naturalVoiceId(v.voiceURI)))]
+    const available = english ? voices.filter(v => naturalVoiceId(v.voiceURI))
       : voices.filter(voice => voice.lang.replace('_', '-').startsWith(material.language.split('-')[0]))
     const currentAvailable = available.find(voice => voice.voiceURI === preferences.voiceURI)
     const explicit = available.find(voice => voice.voiceURI === manualVoices.current.get(material.language))
@@ -446,12 +448,12 @@ export function App() {
       <div className="workspace-side">
         <DictionaryPanel selection={lookupSelection} language={sessionLanguage} />
         <section className="voice-card" aria-labelledby="voice-card-title">
-          <div className="voice-card-heading"><h3 id="voice-card-title">朗读声音</h3><div className="voice-card-actions"><button className="text-button" disabled={!selectedVoice || (natural && preparation.status === 'loading')} onClick={previewVoice} aria-label={previewActive ? '停止试听' : '试听声音'}><Icon name={previewActive ? 'stop' : 'play'} size={14} />{previewActive ? '停止' : '试听'}</button><button className="panel-icon-button" aria-label="刷新声音" title="刷新声音" onClick={() => { refreshVoices(); setVoiceChecked(true) }}><Icon name="repeat" size={17} /></button></div></div>
+          <div className="voice-card-heading"><h3 id="voice-card-title">朗读声音</h3><div className="voice-card-actions"><button className="text-button" disabled={!selectedVoice || (natural && preparation.status === 'loading')} onClick={previewVoice} aria-label={previewActive ? '停止试听' : '试听声音'}><Icon name={previewActive ? 'stop' : 'play'} size={14} />{previewActive ? '停止' : '试听'}</button>{!material.language.startsWith('en') && <button className="panel-icon-button" aria-label="刷新声音" title="刷新声音" onClick={() => { refreshVoices(); setVoiceChecked(true) }}><Icon name="repeat" size={17} /></button>}</div></div>
           <label className="voice-picker"><span className="sr-only">声音</span><select aria-label="朗读声音" value={selectedVoice?.voiceURI ?? ''} onChange={event => { manualVoices.current.set(material.language, event.target.value); changeSettings({ voiceURI: event.target.value }) }}>
             <option value="">{languageVoices.length ? '请选择声音' : voiceChecked ? '未找到对应语言的声音' : '正在查找声音…'}</option>
             {languageVoices.map(voice => <option key={voice.voiceURI} value={voice.voiceURI} title={naturalVoiceId(voice.voiceURI) ? 'Kokoro · 本机生成 · 与参考站相同音色系列' : voiceDescription(voice)}>{naturalVoiceId(voice.voiceURI) ? voice.name : `${voiceLabel(voice)} · ${isNaturalVoice(voice) ? `自然 · ${voice.localService ? '本地' : '在线'}` : voice.localService ? '系统本地' : '在线'}`}</option>)}
           </select></label>
-          {natural && <div className="natural-preparation"><p>{naturalReady ? '本篇音频已就绪，切句直接播放。' : preparation.status === 'loading' ? `正在准备 ${preparation.done} / ${preparation.total} 句${preparation.generating ? ' · 本机合成中' : ` · 资源下载 ${preparation.percent}%`}` : '先准备本篇音频，完成后开始练习。首次需下载约 100 MB，建议使用 Wi-Fi；后续尽量复用浏览器缓存。'}</p>
+          {natural && <div className="natural-preparation"><p>{naturalReady ? '本篇音频已就绪，切句直接播放。' : preparation.status === 'loading' ? `正在准备 ${preparation.done} / ${preparation.total} 句${preparation.generating ? ' · 本机合成中' : ` · 资源下载 ${preparation.percent}%`}` : '先准备本篇音频，完成后开始练习。首次需下载约 100 MB，随后在本机合成。当前页面会复用引擎和已生成音频。'}</p>
             {preparation.status === 'loading' ? <><progress aria-label="自然语音准备进度" max={preparation.total || 1} value={preparation.done} /><button className="text-button" onClick={() => speechPort.cancelPreparation()}>取消准备</button></> : !naturalReady && <button className="secondary-button" onClick={() => { player.stop(); speechPort.prepareNatural(material.sentences.map(s => s.text), selectedVoice!.voiceURI) }}>准备本篇自然语音</button>}
             {preparation.status === 'error' && <p className="check-error" role="alert">{preparation.error}</p>}</div>}
           {audioStatus === 'loading' && <p className="voice-availability" role="status">正在准备这句音频，完成后自动播放…</p>}
