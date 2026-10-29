@@ -1,8 +1,9 @@
 import { CachedSpeechPort } from './cachedSpeechPort.ts'
 import { naturalVoiceId } from './naturalVoices.ts'
+import { readAudio, writeAudio } from './audioStorage.ts'
 import type { SpeechPort, SpeechSettings } from './speechPlayer.ts'
 
-export interface Preparation { status: 'idle' | 'loading' | 'ready' | 'error'; done: number; total: number; percent: number; generating: boolean; error: string }
+export interface Preparation { status: 'idle' | 'loading' | 'ready' | 'error'; done: number; total: number; percent: number; generating: boolean; error: string; storageWarning?: string }
 export class PracticeSpeechPort implements SpeechPort {
   private legacy = new CachedSpeechPort()
   private listeners = new Set<() => void>()
@@ -37,6 +38,28 @@ export class PracticeSpeechPort implements SpeechPort {
     this.publish({ status: 'idle', done: 0, total: 0, percent: 0, generating: false, error: '' })
   }
   prepareNatural(texts: readonly string[], uri: string, onReady?: () => void) {
+    this.cancel(); this.cancelPreparation()
+    const job = this.job
+    this.context ??= new AudioContext()
+    void this.context.resume().catch(() => {})
+    this.publish({ status: 'loading', done: 0, total: new Set(texts).size, percent: 0, generating: false, error: '' })
+    void (async () => {
+      for (const text of new Set(texts)) {
+        if (job !== this.job) return
+        const key = JSON.stringify([uri, text])
+        if (this.buffers.has(key)) continue
+        try {
+          const saved = await readAudio(uri, text)
+          if (job !== this.job) return
+          if (!saved || this.bytes + saved.samples.byteLength > 96 * 1024 * 1024) continue
+          const audio = this.context!.createBuffer(1, saved.samples.length, saved.rate)
+          audio.copyToChannel(new Float32Array(saved.samples), 0); this.buffers.set(key, audio); this.bytes += saved.samples.byteLength
+        } catch { this.publish({ storageWarning: '浏览器无法读取音频缓存；本次仍可生成和播放。' }); break }
+      }
+      if (job === this.job) this.prepareAfterRestore(texts, uri, onReady)
+    })()
+  }
+  private prepareAfterRestore(texts: readonly string[], uri: string, onReady?: () => void) {
     const voice = naturalVoiceId(uri)
     if (!voice) return
     this.cancel(); this.cancelPreparation()
@@ -68,6 +91,9 @@ export class PracticeSpeechPort implements SpeechPort {
         const audio = this.context!.createBuffer(1, data.samples.length, data.rate)
         audio.copyToChannel(data.samples, 0)
         this.buffers.set(JSON.stringify([uri, missing[data.index]]), audio)
+        void writeAudio(uri, missing[data.index], data.samples, data.rate).catch(() => {
+          this.publish({ storageWarning: '音频未能保存到本机（空间不足或浏览器限制），重开后可能需要重新准备。' })
+        })
         this.publish({ done: unique.length - missing.length + data.index + 1 })
       }
       if (data.kind === 'done') {

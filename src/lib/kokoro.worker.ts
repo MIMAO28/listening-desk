@@ -7,6 +7,7 @@ const scope = self as unknown as { postMessage: (data: unknown, transfer?: Trans
 const base = new URL(`${import.meta.env.BASE_URL}vendor/kokoro/`, self.location.origin).href
 env.allowRemoteModels = false
 env.allowLocalModels = true
+env.useBrowserCache = true
 env.localModelPath = base
 env.backends.onnx.wasm!.wasmPaths = `${base}runtime/`
 env.backends.onnx.wasm!.numThreads = 1
@@ -14,10 +15,19 @@ env.backends.onnx.wasm!.proxy = false
 // kokoro-js 1.2.1 hardcodes its voice URL. Redirect only that exact public
 // resource to our own pinned copy; material text never leaves this worker.
 const originalFetch = self.fetch.bind(self)
-self.fetch = (input, init) => {
+self.fetch = async (input, init) => {
   const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
   const voice = url.match(/^https:\/\/huggingface.co\/onnx-community\/Kokoro-82M-v1.0-ONNX\/resolve\/main\/voices\/([a-z_]+)\.bin$/)
-  return originalFetch(voice ? `${base}model/voices/${voice[1]}.bin` : input, init)
+  const target = voice ? `${base}model/voices/${voice[1]}.bin` : url
+  // Pinned runtime/voice bytes only. No material text or auth request is cached.
+  if (target.startsWith(base) && /\.(wasm|bin)$/.test(target) && (!init?.method || init.method === 'GET')) {
+    let cache: Cache | undefined
+    try { cache = await caches.open('listening-desk-voice-resources-c46655e8-1939ad2'); const hit = await cache.match(target); if (hit) return hit } catch { /* Private mode can deny storage. */ }
+    const response = await originalFetch(target, init)
+    if (response.ok && cache) void cache.put(target, response.clone()).catch(() => {})
+    return response
+  }
+  return originalFetch(voice ? target : input, init)
 }
 let model: Promise<KokoroTTS> | undefined
 type Job = { job: number; texts: string[]; voice: typeof NATURAL_VOICES[number]['id'] }

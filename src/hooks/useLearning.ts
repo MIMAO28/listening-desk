@@ -26,6 +26,7 @@ export function useLearning(user: User | null, material: Material, active: boole
     if (!current.current || current.current.owner !== user.id || current.current.material !== mat.id + mat.sourceText || current.current.day !== day) {
       current.current = { id: crypto.randomUUID(), owner: user.id, material: mat.id + mat.sourceText, title: mat.title, language: mat.language, day, seconds: 0, completed: false, results: new Map() }
       queue.current.set(current.current.id, current.current)
+      try { const key = 'listening-desk-records:' + user.id; const records = JSON.parse(localStorage.getItem(key) ?? '{}'); records[current.current.id] = mat.id; localStorage.setItem(key, JSON.stringify(records)) } catch { /* Workspace resume remains available. */ }
     }
     return current.current
   }, [user?.id])

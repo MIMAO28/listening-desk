@@ -110,3 +110,9 @@
 .level-collection-grid .current-level { border-radius: 16px; background: var(--surface-soft); color: var(--ink); }
 .level-attribution { font-size: 12px; line-height: 1.8; color: var(--muted); }
 .level-gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 14px; color: var(--muted); }
+.resume-materials { display: grid; gap: 12px; margin-top: 16px; }
+.resume-materials > div { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.resume-materials > div > div { min-width: 0; }
+.resume-materials strong { display: block; overflow-wrap: anywhere; }
+.resume-materials span { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
+.resume-materials button { flex-shrink: 0; }

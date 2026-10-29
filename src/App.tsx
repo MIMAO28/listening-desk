@@ -25,7 +25,8 @@ import { characterChannels, themeTokens } from './lib/colorThemes.ts'
 import { ThemePicker } from './components/ThemePicker.tsx'
 
 export function App() {
-  const { workspace, setWorkspace } = useWorkspace()
+  const account = useAccount()
+  const { workspace, setWorkspace, storageError } = useWorkspace(account.user?.id ?? 'guest')
   const [route, setRoute] = useState(() => routeFromHash(window.location.hash))
   const [speechPort] = useState(() => new PracticeSpeechPort())
   const [player] = useState(() => new SpeechPlayer(speechPort))
@@ -33,7 +34,6 @@ export function App() {
   const audioStatus = useSyncExternalStore(speechPort.subscribe, speechPort.getSnapshot)
   const preparation = useSyncExternalStore(speechPort.subscribe, speechPort.getPreparation)
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>(naturalVoiceChoices)
-  const account = useAccount()
   const [accountOpen, setAccountOpen] = useState(false)
   const [check, setCheck] = useState<CheckResult | null>(null)
   const [checkError, setCheckError] = useState('')
@@ -78,6 +78,7 @@ export function App() {
   const answer = material.answers?.[material.sentences[material.currentIndex].id] ?? ''
   useLayoutEffect(() => { speechPort.cancelPreparation() }, [speechPort, material.id, material.sourceText, selectedVoice?.voiceURI])
 
+  useLayoutEffect(() => { player.stop() }, [player, account.user?.id])
   useEffect(() => { if (account.recovery) setAccountOpen(true) }, [account.recovery])
   useEffect(() => { if (account.user && !account.recovery) setAccountOpen(false) }, [account.user, account.recovery])
   useEffect(() => { setCheck(null); setCheckError('') }, [material.id, material.currentIndex])
@@ -154,8 +155,7 @@ export function App() {
       : voices.filter(voice => voice.lang.replace('_', '-').startsWith(material.language.split('-')[0]))
     const currentAvailable = available.find(voice => voice.voiceURI === preferences.voiceURI)
     const explicit = available.find(voice => voice.voiceURI === manualVoices.current.get(material.language))
-    const active = playback.status === 'playing' || playback.status === 'waiting' || playback.status === 'paused'
-    if (!currentAvailable || english && !active && currentAvailable !== explicit) {
+    if (!currentAvailable) {
       const local = available.find(voice => voice.localService && voice.lang === material.language)
         ?? available.find(voice => voice.localService)
       const uri = explicit?.voiceURI ?? (english ? available[0]?.voiceURI : local?.voiceURI) ?? ''
@@ -281,7 +281,7 @@ export function App() {
 
   const saveMaterial = (next: Material) => {
     if (importMode !== 'edit' && workspace.materials.length >= 100) {
-      setNotice('本次材料已达 100 篇。刷新页面后可重新开始。'); return
+      setNotice('本机材料已达100篇，暂时不能继续导入。'); return
     }
     player.stop()
     setWorkspace(previous => ({ ...previous, activeId: next.id,
@@ -336,7 +336,8 @@ export function App() {
       </div>
     </header>
 
-    {route === 'home' ? <HomePage /> : route === 'confirm' ? <EmailConfirmation onLogin={() => setAccountOpen(true)} /> : route === 'dashboard' ? <LearningDashboard user={account.user} sessions={learning.sessions} loading={learning.loading} error={learning.error || account.error} onLogin={() => setAccountOpen(true)} onRefresh={() => { void learning.flush().then(learning.refresh) }} /> : <main className="practice-page">
+    {storageError && <div className="alert warning" role="alert">{storageError}</div>}
+    {route === 'home' ? <HomePage /> : route === 'confirm' ? <EmailConfirmation onLogin={() => setAccountOpen(true)} /> : route === 'dashboard' ? <LearningDashboard materials={workspace.materials} onResume={id => { player.stop(); const saved = workspace.materials.find(m => m.id === id); if (!saved) return; setWorkspace(p => ({ ...p, activeId: id })); window.location.hash = saved.language === 'ja-JP' ? '/practice/ja' : '/practice/en' }} user={account.user} sessions={learning.sessions} loading={learning.loading} error={learning.error || account.error} onLogin={() => setAccountOpen(true)} onRefresh={() => { void learning.flush().then(learning.refresh) }} /> : <main className="practice-page">
       <div className="training-area" id="practice-area" ref={practiceArea}>
       <section className="material-heading training-heading" aria-label="当前练习材料">
         <div><h2>{material.title}</h2></div>
@@ -367,7 +368,7 @@ export function App() {
         <details className="keyboard-help"><summary>快捷键与说明</summary>
           <p><kbd>Esc</kbd> 关闭设置 / 退出专注。常用播放快捷键显示在播放器下方。</p>
           <p>选中听写中的单词，点击听写栏的放大镜即可查词。</p>
-          <p>本句输入：{material.language.startsWith('en') ? `${wordCount} 词` : `${answer.length} 字符`}。切句保留各句输入，刷新后清空。登录后仅保存标题和学习统计。</p>
+          <p>本句输入：{material.language.startsWith('en') ? `${wordCount} 词` : `${answer.length} 字符`}。材料、所在句子和听写保存于本浏览器，重开可继续；云端仅同步标题和学习统计。</p>
         </details>
       </section>
       {(!supported || (voiceChecked && !selectedVoice)) && <div className="alert warning" role="status">
@@ -453,9 +454,9 @@ export function App() {
             <option value="">{languageVoices.length ? '请选择声音' : voiceChecked ? '未找到对应语言的声音' : '正在查找声音…'}</option>
             {languageVoices.map(voice => <option key={voice.voiceURI} value={voice.voiceURI} title={naturalVoiceId(voice.voiceURI) ? 'Kokoro · 本机生成 · 与参考站相同音色系列' : voiceDescription(voice)}>{naturalVoiceId(voice.voiceURI) ? voice.name : `${voiceLabel(voice)} · ${isNaturalVoice(voice) ? `自然 · ${voice.localService ? '本地' : '在线'}` : voice.localService ? '系统本地' : '在线'}`}</option>)}
           </select></label>
-          {natural && <div className="natural-preparation"><p>{naturalReady ? '本篇音频已就绪，切句直接播放。' : preparation.status === 'loading' ? `正在准备 ${preparation.done} / ${preparation.total} 句${preparation.generating ? ' · 本机合成中' : ` · 资源下载 ${preparation.percent}%`}` : '先准备本篇音频，完成后开始练习。首次需下载约 100 MB，随后在本机合成。当前页面会复用引擎和已生成音频。'}</p>
+          {natural && <div className="natural-preparation"><p>{naturalReady ? '本篇音频已就绪，切句直接播放。' : preparation.status === 'loading' ? `正在准备 ${preparation.done} / ${preparation.total} 句${preparation.generating ? ' · 本机合成中' : ` · 资源下载 ${preparation.percent}%`}` : '先准备本篇音频，完成后开始练习。首次需下载约 100 MB，随后在本机合成。材料与音频会保存在本浏览器；再次准备时优先恢复缓存，仅合成缺失句子。'}</p>
             {preparation.status === 'loading' ? <><progress aria-label="自然语音准备进度" max={preparation.total || 1} value={preparation.done} /><button className="text-button" onClick={() => speechPort.cancelPreparation()}>取消准备</button></> : !naturalReady && <button className="secondary-button" onClick={() => { player.stop(); speechPort.prepareNatural(material.sentences.map(s => s.text), selectedVoice!.voiceURI) }}>准备本篇自然语音</button>}
-            {preparation.status === 'error' && <p className="check-error" role="alert">{preparation.error}</p>}</div>}
+            {preparation.storageWarning && <p role="status">{preparation.storageWarning}</p>}{preparation.status === 'error' && <p className="check-error" role="alert">{preparation.error}</p>}</div>}
           {audioStatus === 'loading' && <p className="voice-availability" role="status">正在准备这句音频，完成后自动播放…</p>}
           {audioStatus === 'fallback' && <p className="voice-availability" role="status">音频缓存连接暂不可用，已使用原在线朗读，切句可能稍有等待。</p>}
         </section>
