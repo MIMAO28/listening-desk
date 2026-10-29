@@ -109,3 +109,4 @@
 .level-collection-grid .level-medallion { width: 64px; height: 64px; }
 .level-collection-grid .current-level { border-radius: 16px; background: var(--surface-soft); color: var(--ink); }
 .level-attribution { font-size: 12px; line-height: 1.8; color: var(--muted); }
+.level-gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 14px; color: var(--muted); }
