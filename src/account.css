@@ -98,3 +98,14 @@
   .history-details li > div { flex-basis: 100%; }
   .answer-actions { flex-wrap: wrap; padding: 12px; }
 }
+.level-medallion { position: relative; background: var(--accent-soft); color: var(--link); border: 1px solid var(--accent-line); border-radius: 24%; }
+.level-glyph { display: block; width: 70%; height: 70%; background: currentColor; mask-image: var(--level-icon); mask-size: contain; mask-repeat: no-repeat; mask-position: center; mask-mode: luminance; }
+.level-cycle { position: absolute; right: -4px; bottom: -4px; border-radius: 12px; background: var(--accent); color: var(--button-ink); padding: 3px 7px; font-size: 12px; }
+.level-collection { margin: 14px 0 24px; }
+.level-collection summary { cursor: pointer; width: fit-content; color: var(--link); font-size: 14px; padding: 8px 0; }
+.level-collection summary:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.level-collection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 16px; padding: 20px 0; }
+.level-collection-grid > div { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 10px 4px; font-size: 12px; color: var(--muted); }
+.level-collection-grid .level-medallion { width: 64px; height: 64px; }
+.level-collection-grid .current-level { border-radius: 16px; background: var(--surface-soft); color: var(--ink); }
+.level-attribution { font-size: 12px; line-height: 1.8; color: var(--muted); }

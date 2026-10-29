@@ -1,0 +1,63 @@
+Icons made by Lorc and Delapouite. Available on https://game-icons.net
+License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+Modifications: displayed as CSS masks; recolored to match website themes; level badge frame added.
+
+Lv.1: sprout — Lorc
+https://game-icons.net/1x1/lorc/sprout.html
+
+Lv.2: feather — Lorc
+https://game-icons.net/1x1/lorc/feather.html
+
+Lv.3: quill-ink — Lorc
+https://game-icons.net/1x1/lorc/quill-ink.html
+
+Lv.4: open-book — Lorc
+https://game-icons.net/1x1/lorc/open-book.html
+
+Lv.5: light-bulb — Lorc
+https://game-icons.net/1x1/lorc/light-bulb.html
+
+Lv.6: compass — Lorc
+https://game-icons.net/1x1/lorc/compass.html
+
+Lv.7: brain — Lorc
+https://game-icons.net/1x1/lorc/brain.html
+
+Lv.8: owl — Lorc
+https://game-icons.net/1x1/lorc/owl.html
+
+Lv.9: laurel-crown — Lorc
+https://game-icons.net/1x1/lorc/laurel-crown.html
+
+Lv.10: trophy — Lorc
+https://game-icons.net/1x1/lorc/trophy.html
+
+Lv.11: diamond-hard — Lorc
+https://game-icons.net/1x1/lorc/diamond-hard.html
+
+Lv.12: crystal-ball — Lorc
+https://game-icons.net/1x1/lorc/crystal-ball.html
+
+Lv.13: lotus — Lorc
+https://game-icons.net/1x1/lorc/lotus.html
+
+Lv.14: crowned-heart — Lorc
+https://game-icons.net/1x1/lorc/crowned-heart.html
+
+Lv.15: angel-wings — Lorc
+https://game-icons.net/1x1/lorc/angel-wings.html
+
+Lv.16: sun — Lorc
+https://game-icons.net/1x1/lorc/sun.html
+
+Lv.17: orbital — Lorc
+https://game-icons.net/1x1/lorc/orbital.html
+
+Lv.18: star-swirl — Lorc
+https://game-icons.net/1x1/lorc/star-swirl.html
+
+Lv.19: galaxy — Delapouite
+https://game-icons.net/1x1/delapouite/galaxy.html
+
+Lv.20: stars-stack — Delapouite
+https://game-icons.net/1x1/delapouite/stars-stack.html
